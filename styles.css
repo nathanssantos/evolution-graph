@@ -3,6 +3,11 @@
   position: relative;
 }
 
+.evolution-chart__label {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
 .evolution-chart__item,
 .evolution-chart__item__label {
   display: flex;

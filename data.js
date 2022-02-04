@@ -202,8 +202,8 @@ const data = [
     bars: [
       { label: "Company A", color: "#00b894", image: "", value: 72 },
       { label: "Company B", color: "#00cec9", image: "", value: 80 },
-      { label: "Company C", color: "#0984e3", image: "", value: 100 },
-      { label: "Company D", color: "#6c5ce7", image: "", value: 150 },
+      { label: "Company C", color: "#0984e3", image: "", value: 98 },
+      { label: "Company D", color: "#6c5ce7", image: "", value: 111 },
       { label: "Company F", color: "#ffeaa7", image: "", value: 50 },
       { label: "Company G", color: "#fab1a0", image: "", value: 32 },
       { label: "Company H", color: "#ff7675", image: "", value: 20 },
