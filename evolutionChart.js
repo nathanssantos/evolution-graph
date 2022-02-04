@@ -48,10 +48,10 @@ const evolutionChart = ({
                     <label>${label}</label>
                 </div>
                 <div class="evolution-chart__item__track">
-                        <div class="evolution-chart__item__bar" style="width: 1px; background-color: ${color}; transition: all ${evolutionInterval}ms linear;">
-                            ${beforeValue}${value}${afterValue}
-                        </div>
-                <div class="evolution-chart__item__label">
+                    <div class="evolution-chart__item__bar" style="width: 1px; background-color: ${color}; transition: all ${evolutionInterval}ms linear;">
+                        ${beforeValue}${value}${afterValue}
+                    </div>
+                </div>
             </div>
         `
       );
