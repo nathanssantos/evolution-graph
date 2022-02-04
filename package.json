@@ -1,0 +1,12 @@
+{
+  "name": "evolution-chart",
+  "version": "1.0.0",
+  "author": "Nathan S. Santos <nathansilvasantos@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "browser-sync start -f . --server"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.7"
+  }
+}

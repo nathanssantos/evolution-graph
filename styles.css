@@ -1,0 +1,33 @@
+.evolution-chart,
+.evolution-chart__bars {
+  position: relative;
+}
+
+.evolution-chart__item,
+.evolution-chart__item__label {
+  display: flex;
+  align-items: center;
+}
+
+.evolution-chart__item {
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+
+.evolution-chart__item__label {
+  min-width: 100px;
+}
+
+.evolution-chart__item__image {
+  flex-direction: column;
+}
+
+.evolution-chart__item__track {
+  flex: 1;
+}
+
+.evolution-chart__item__bar {
+  height: 20px;
+  width: 100%;
+}
