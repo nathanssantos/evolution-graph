@@ -1,3 +1,7 @@
+.evolution-chart {
+  font-family: "Roboto", Arial;
+}
+
 .evolution-chart,
 .evolution-chart__bars {
   position: relative;

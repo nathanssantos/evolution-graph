@@ -13,12 +13,8 @@ const evolutionChart = ({
     let interval = null;
 
     const compare = (a, b) => {
-      if (a.value < b.value) {
-        return 1;
-      }
-      if (a.value > b.value) {
-        return -1;
-      }
+      if (a.value < b.value) return 1;
+      if (a.value > b.value) return -1;
       return 0;
     };
 
@@ -30,32 +26,39 @@ const evolutionChart = ({
       }
     };
 
-    const createBars = (bars) => {
-      return bars.map(
+    const createBars = (bars) =>
+      bars.map(
         ({ label, color, image, value }, index) => `
-            <div class="evolution-chart__item ${label
-              .replace(" ", "-")
-              .toLowerCase()}" style="top: ${barWidth * 2 * index}px; transition: all ${evolutionInterval}ms linear, top ${evolutionInterval / 2}ms linear;">
-                <div class="evolution-chart__item__label">
-                    ${
-                      image?.length
-                        ? `
-                        <div class="evolution-chart__item__image">
-                          <img src="${image}" />
-                        </div>`
-                        : ""
-                    }
-                    <label>${label}</label>
-                </div>
-                <div class="evolution-chart__item__track">
-                    <div class="evolution-chart__item__bar" style="width: 1px; background-color: ${color}; transition: all ${evolutionInterval}ms linear;">
-                        ${beforeValue}${value}${afterValue}
-                    </div>
-                </div>
+            <div 
+              class="
+                evolution-chart__item 
+                ${label.replace(" ", "-").toLowerCase()}
+              "
+              style="
+                top: ${barWidth * 2 * index}px; 
+                transition: all ${evolutionInterval}ms linear, 
+                top ${evolutionInterval / 2}ms linear;
+              "
+            >
+              <div class="evolution-chart__item__label">
+                  ${
+                    image?.length
+                      ? `
+                      <div class="evolution-chart__item__image">
+                        <img src="${image}" />
+                      </div>`
+                      : ""
+                  }
+                  <label>${label}</label>
+              </div>
+              <div class="evolution-chart__item__track">
+                  <div class="evolution-chart__item__bar" style="width: 1px; background-color: ${color}; transition: all ${evolutionInterval}ms linear;">
+                      ${beforeValue}${value}${afterValue}
+                  </div>
+              </div>
             </div>
         `
       );
-    };
 
     const updateChart = () => {
       if (currentEvolutionIndex >= data?.length) return;
@@ -66,7 +69,6 @@ const evolutionChart = ({
         document.querySelectorAll(".evolution-chart__item")
       );
 
-      //   console.log(sortedData);
       const sortedData = [...data[currentEvolutionIndex]?.bars].sort(compare);
 
       items.forEach((item, index) => {
