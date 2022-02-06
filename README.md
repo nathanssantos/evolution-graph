@@ -16,7 +16,6 @@
 
 ## To Do
 
-- Bar image optional rendering
 - Label timeline
 - Graph title render callback
 - Bar title render callback
