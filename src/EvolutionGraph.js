@@ -91,8 +91,8 @@ class EvolutionGraph {
   };
 
   prepare = () => {
-    this.target.prepend(this.graph.body);
     this.graph.update({ currentEvolutionIndex: this.currentEvolutionIndex });
+    this.target.append(this.graph.body);
   };
 
   updateGraph = (direction) => {

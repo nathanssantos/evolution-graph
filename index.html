@@ -9,6 +9,7 @@
   </head>
   <body>
     <main>
+      <div id="graph-example"></div>
       <div
         style="
           width: 100%;
@@ -29,7 +30,7 @@
       import { data, labels } from "./exampleData.js";
 
       const graph = new EvolutionGraph({
-        target: document.querySelector("main"),
+        target: document.getElementById("graph-example"),
         data,
         labels,
         order: "desc",
