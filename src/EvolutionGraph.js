@@ -1,4 +1,4 @@
-import Graph from "./models/Graph.js";
+import Graph from "./components/Graph.js";
 
 class EvolutionGraph {
   constructor(props) {
@@ -37,6 +37,14 @@ class EvolutionGraph {
     this.isPlaying = false;
 
     this.prepare();
+  }
+
+  get cantGoBack() {
+    return this.currentEvolutionIndex <= 0;
+  }
+
+  get cantGoForward() {
+    return this.currentEvolutionIndex >= this.data[0]?.values?.length - 1;
   }
 
   getHigherValue = () => {
@@ -104,28 +112,25 @@ class EvolutionGraph {
 
   goToPreviousStep = () => {
     this.stop();
-    if (this.currentEvolutionIndex <= 0) return;
+    if (this.cantGoBack) return;
     this.updateGraph("previous");
   };
 
   goToNextStep = () => {
     this.stop();
-    if (this.currentEvolutionIndex >= this.data[0]?.values?.length - 1) return;
+    if (this.cantGoForward) return;
     this.updateGraph();
   };
 
   start = () => {
-    if (this.currentEvolutionIndex >= this.data[0]?.values?.length - 1) return;
+    if (this.cantGoForward) return;
 
     this.isPlaying = true;
     this.updateGraph();
 
     this.interval = setInterval(() => {
       this.updateGraph();
-
-      if (this.currentEvolutionIndex >= this.data[0]?.values?.length - 1) {
-        clearInterval(this.interval);
-      }
+      if (this.cantGoForward) clearInterval(this.interval);
     }, this.evolutionInterval);
   };
 

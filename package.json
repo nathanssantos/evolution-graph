@@ -6,5 +6,8 @@
     "email": "nathansilvasantos@gmail.com"
   },
   "license": "MIT",
-  "description": "Vanilla JS fully customizable animated evolution graph."
+  "description": "Vanilla JS fully customizable animated evolution graph.",
+  "scripts": {
+    "start": "browser-sync start -f . --server"
+  }
 }
