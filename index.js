@@ -1,3 +1,3 @@
-import evolutionChart from "./src/main.js";
+import EvolutionChart from "./src/main.js";
 
-export default evolutionChart;
+export default EvolutionChart;
