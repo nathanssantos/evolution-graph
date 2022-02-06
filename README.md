@@ -1,2 +1,2 @@
 # Evolution Graph
-Vanilla JS fully customizable evolutive graph.
+Vanilla JS fully customizable evolution graph.
