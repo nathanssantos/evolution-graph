@@ -16,8 +16,8 @@
 
 ## To Do
 
-- Graph title render callback
-- Bar title render callback
-- Bar background image prop
-- Graph orientation prop
+- renderGraphTitle callback
+- renderBarLabel callback
+- onChange prop
+- graphOrientation prop
 - Documetation
