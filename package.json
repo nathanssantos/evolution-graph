@@ -1,12 +1,10 @@
 {
   "name": "evolution-graph",
   "version": "1.0.0",
-  "author": "Nathan S. Santos <nathansilvasantos@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "start": "browser-sync start -f . --server"
+  "author": {
+    "name": "Nathan Silva Santos",
+    "email": "nathansilvasantos@gmail.com"
   },
-  "devDependencies": {
-    "browser-sync": "^2.27.7"
-  }
+  "license": "MIT",
+  "description": "Vanilla JS fully customizable animated evolution graph."
 }
