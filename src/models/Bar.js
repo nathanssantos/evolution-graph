@@ -68,14 +68,15 @@ class Bar extends Element {
 
     trackFill.setStyle("height", `${this.width}px`);
     trackFill.setStyle("background-color", this.color);
+    trackFill.setStyle("border", `1px solid ${this.color}`);
     trackFill.setStyle("transition", `all ${graph.evolutionInterval}ms linear`);
 
-    const trackFillValue = new Element({
-      className: "evolution-graph__bar__track__fill__value",
+    const trackValue = new Element({
+      className: "evolution-graph__bar__track__value",
     });
 
-    trackFill.body.append(trackFillValue.body);
     track.body.append(trackFill.body);
+    track.body.append(trackValue.body);
     imageWrapper.body.append(image.body);
     label.body.append(imageWrapper.body);
     label.body.append(labelText.body);
@@ -87,7 +88,7 @@ class Bar extends Element {
       image,
       track,
       trackFill,
-      trackFillValue,
+      trackValue,
     };
 
     this.body.append(label.body);
@@ -104,7 +105,7 @@ class Bar extends Element {
       `calc(${(this.value / graph.higherValue) * 100}%`
     );
 
-    this.elements.trackFillValue.body.innerHTML = this.renderValue
+    this.elements.trackValue.body.innerHTML = this.renderValue
       ? this.renderValue(this.value)
       : this.value;
   };

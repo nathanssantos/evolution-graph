@@ -4,22 +4,64 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/styles/styles.css" />
+    <link rel="stylesheet" href="./src/css/styles.css" />
     <title>Evolution Graph</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 16px;
+        background-color: rgb(13, 17, 23);
+        color: rgb(206, 206, 206);
+      }
+
+      .actions {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+        gap: 16px;
+      }
+
+      .actions button {
+        font-size: 20px;
+        line-height: 1;
+        height: 40px;
+        width: 40px;
+        border-radius: 4px;
+        border: 1px solid rgb(206, 206, 206);
+        padding-bottom: 4px;
+        background: none;
+        color: rgb(206, 206, 206);
+        cursor: pointer;
+        transition: all 250ms ease-in-out;
+      }
+
+      .actions button:hover {
+        background: rgba(206, 206, 206, 0.5);
+      }
+
+      .evolution-graph__bar__track__fill {
+        border-radius: 4px;
+        opacity: 0.9;
+        background-color: rgba(206, 206, 206, 0.1) !important;
+        border-width: 2px !important;
+      }
+
+      .evolution-graph__bar__track__value {
+        text-transform: uppercase;
+      }
+
+      .evolution-graph__label {
+        font-size: 24px;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <main>
       <div id="graph-example"></div>
-      <div
-        style="
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-top: 24px;
-          gap: 16px;
-        "
-      >
+      <div class="actions">
         <button id="bt-previous">←</button>
         <button id="bt-play">&#x23F5;</button>
         <button id="bt-next">→</button>
@@ -33,6 +75,7 @@
         target: document.getElementById("graph-example"),
         data,
         labels,
+        barWidth: 30,
         order: "desc",
         renderValue: (value) => `$${value}mi`,
       });

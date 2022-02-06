@@ -30,7 +30,7 @@ const data = [
   {
     label: "Company E",
     className: "company-e",
-    color: "#ffeaa7",
+    color: "#666666",
     image: "",
     values: [0, 7, 15, 16, 18, 20, 26, 28, 36, 40, 42, 50],
   },

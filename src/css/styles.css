@@ -30,17 +30,17 @@
 
 .evolution-graph__bar__track {
   flex: 1;
+  position: relative;
 }
 
 .evolution-graph__bar__track__fill {
   min-width: 1px;
-  position: relative;
 }
 
-.evolution-graph__bar__track__fill__value {
+.evolution-graph__bar__track__value {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 4px;
+  left: 8px;
   white-space: nowrap;
 }
