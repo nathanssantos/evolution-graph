@@ -4,15 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./src/styles/styles.css" />
     <title>Evolution Chart</title>
   </head>
   <body>
     <main></main>
-    <script src="./evolutionChart.js"></script>
-    <script src="./data.js"></script>
-    <script>
-      evolutionChart({ data, evolutionInterval: 3000 });
+    <script type="module">
+      import evolutionChart from "./index.js";
+      import { data, labels } from "./data.js";
+
+      evolutionChart({
+        data,
+        labels,
+        order: "desc",
+        renderValue: (value) => `$${value}mi`,
+      });
     </script>
   </body>
 </html>
