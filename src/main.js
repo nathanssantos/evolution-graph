@@ -1,6 +1,6 @@
-import Chart from "./models/Chart.js";
+import Graph from "./models/Graph.js";
 
-class EvolutionChart {
+class EvolutionGraph {
   constructor(props) {
     const {
       target,
@@ -32,7 +32,7 @@ class EvolutionChart {
     this.currentEvolutionIndex = 0;
     this.interval = null;
 
-    this.chart = this.createChart();
+    this.graph = this.createGraph();
 
     this.isPlaying = false;
 
@@ -51,7 +51,7 @@ class EvolutionChart {
     return higherValue;
   };
 
-  createChart = () => {
+  createGraph = () => {
     const {
       data,
       labels,
@@ -64,7 +64,7 @@ class EvolutionChart {
       renderValue,
     } = this;
 
-    const className = `evolution-chart${
+    const className = `evolution-graph${
       this.className?.length ? ` ${this.className}` : ""
     }`;
 
@@ -72,7 +72,7 @@ class EvolutionChart {
 
     const higherValue = this.getHigherValue();
 
-    const chart = new Chart({
+    const graph = new Graph({
       data,
       labels,
       className,
@@ -87,41 +87,41 @@ class EvolutionChart {
       renderValue,
     });
 
-    return chart;
+    return graph;
   };
 
   prepare = () => {
-    this.target.prepend(this.chart.body);
-    this.chart.update({ currentEvolutionIndex: this.currentEvolutionIndex });
+    this.target.prepend(this.graph.body);
+    this.graph.update({ currentEvolutionIndex: this.currentEvolutionIndex });
   };
 
-  updateChart = (direction) => {
+  updateGraph = (direction) => {
     this.currentEvolutionIndex =
       this.currentEvolutionIndex + (direction === "previous" ? -1 : 1);
 
-    this.chart.update({ currentEvolutionIndex: this.currentEvolutionIndex });
+    this.graph.update({ currentEvolutionIndex: this.currentEvolutionIndex });
   };
 
   goToPreviousStep = () => {
     this.stop();
     if (this.currentEvolutionIndex <= 0) return;
-    this.updateChart("previous");
+    this.updateGraph("previous");
   };
 
   goToNextStep = () => {
     this.stop();
     if (this.currentEvolutionIndex >= this.data[0]?.values?.length - 1) return;
-    this.updateChart();
+    this.updateGraph();
   };
 
   start = () => {
     if (this.currentEvolutionIndex >= this.data[0]?.values?.length - 1) return;
 
     this.isPlaying = true;
-    this.updateChart();
+    this.updateGraph();
 
     this.interval = setInterval(() => {
-      this.updateChart();
+      this.updateGraph();
 
       if (this.currentEvolutionIndex >= this.data[0]?.values?.length - 1) {
         clearInterval(this.interval);
@@ -135,4 +135,4 @@ class EvolutionChart {
   };
 }
 
-export default EvolutionChart;
+export default EvolutionGraph;

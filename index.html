@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/styles/styles.css" />
-    <title>Evolution Chart</title>
+    <title>Evolution Graph</title>
   </head>
   <body>
     <main>
@@ -25,10 +25,10 @@
       </div>
     </main>
     <script type="module">
-      import EvolutionChart from "./index.js";
+      import EvolutionGraph from "./index.js";
       import { data, labels } from "./data.js";
 
-      const chart = new EvolutionChart({
+      const graph = new EvolutionGraph({
         target: document.querySelector("main"),
         data,
         labels,
@@ -41,25 +41,25 @@
       const btNext = document.getElementById("bt-next");
 
       btPrevious.addEventListener("click", (event) => {
-        chart.stop();
+        graph.stop();
         btPlay.textContent = "\u23F5";
-        chart.goToPreviousStep();
+        graph.goToPreviousStep();
       });
 
       btPlay.addEventListener("click", (event) => {
-        if (chart.isPlaying) {
-          chart.stop();
+        if (graph.isPlaying) {
+          graph.stop();
           event.target.textContent = "\u23F5";
         } else {
           event.target.textContent = "\u23F8";
-          chart.start();
+          graph.start();
         }
       });
 
       btNext.addEventListener("click", (event) => {
-        chart.stop();
+        graph.stop();
         btPlay.textContent = "\u23F5";
-        chart.goToNextStep();
+        graph.goToNextStep();
       });
     </script>
   </body>

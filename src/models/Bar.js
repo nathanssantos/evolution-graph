@@ -12,7 +12,7 @@ class Bar extends Element {
       labelWidth,
       color,
       image,
-      chart,
+      graph,
       renderValue,
     } = props;
 
@@ -25,53 +25,53 @@ class Bar extends Element {
     this.image = image;
     this.renderValue = renderValue;
 
-    this.prepare({ chart });
+    this.prepare({ graph });
   }
 
-  prepare = ({ chart }) => {
+  prepare = ({ graph }) => {
     this.setStyle(
       "transition",
-      `all ${chart.evolutionInterval}ms linear, top ${chart.transitionTopInterval}ms linear`
+      `all ${graph.evolutionInterval}ms linear, top ${graph.transitionTopInterval}ms linear`
     );
 
     const label = new Element({
       type: "label",
-      className: "evolution-chart__bar__label",
+      className: "evolution-graph__bar__label",
     });
 
     label.setStyle("min-width", `${this.labelWidth}px`);
 
     const labelText = new Element({
-      className: "evolution-chart__bar__label__text",
+      className: "evolution-graph__bar__label__text",
     });
 
     labelText.body.innerHTML = this.label;
 
     const imageWrapper = new Element({
-      className: "evolution-chart__bar__image-wrapper",
+      className: "evolution-graph__bar__image-wrapper",
     });
 
     const image = new Element({
       type: "img",
-      className: "evolution-chart__bar__image",
+      className: "evolution-graph__bar__image",
     });
 
     image.body.setAttribute("src", this.image);
 
     const track = new Element({
-      className: "evolution-chart__bar__track",
+      className: "evolution-graph__bar__track",
     });
 
     const trackFill = new Element({
-      className: "evolution-chart__bar__track__fill",
+      className: "evolution-graph__bar__track__fill",
     });
 
     trackFill.setStyle("height", `${this.width}px`);
     trackFill.setStyle("background-color", this.color);
-    trackFill.setStyle("transition", `all ${chart.evolutionInterval}ms linear`);
+    trackFill.setStyle("transition", `all ${graph.evolutionInterval}ms linear`);
 
     const trackFillValue = new Element({
-      className: "evolution-chart__bar__track__fill__value",
+      className: "evolution-graph__bar__track__fill__value",
     });
 
     trackFill.body.append(trackFillValue.body);
@@ -94,14 +94,14 @@ class Bar extends Element {
     this.body.append(track.body);
   };
 
-  update = ({ chart, newValue, position }) => {
+  update = ({ graph, newValue, position }) => {
     this.value = newValue;
     this.position = position;
 
-    this.setStyle("top", `${(this.width + chart.gap) * this.position}px`);
+    this.setStyle("top", `${(this.width + graph.gap) * this.position}px`);
     this.elements.trackFill.setStyle(
       "width",
-      `calc(${(this.value / chart.higherValue) * 100}%`
+      `calc(${(this.value / graph.higherValue) * 100}%`
     );
 
     this.elements.trackFillValue.body.innerHTML = this.renderValue

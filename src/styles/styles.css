@@ -1,17 +1,17 @@
-.evolution-chart {
+.evolution-graph {
   font-family: "Roboto", Arial;
 }
 
-.evolution-chart__label {
+.evolution-graph__label {
   margin-bottom: 24px;
   text-align: center;
 }
 
-.evolution-chart__bars {
+.evolution-graph__bars {
   position: relative;
 }
 
-.evolution-chart__bar {
+.evolution-graph__bar {
   position: absolute;
   right: 0;
   left: 0;
@@ -19,25 +19,25 @@
   align-items: center;
 }
 
-.evolution-chart__bar__label {
+.evolution-graph__bar__label {
   display: flex;
   align-items: center;
 }
 
-.evolution-chart__bar__image {
+.evolution-graph__bar__image {
   flex-direction: column;
 }
 
-.evolution-chart__bar__track {
+.evolution-graph__bar__track {
   flex: 1;
 }
 
-.evolution-chart__bar__track__fill {
+.evolution-graph__bar__track__fill {
   min-width: 1px;
   position: relative;
 }
 
-.evolution-chart__bar__track__fill__value {
+.evolution-graph__bar__track__fill__value {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

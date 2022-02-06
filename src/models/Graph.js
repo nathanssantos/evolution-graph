@@ -2,7 +2,7 @@ import Element from "./Element.js";
 import Bar from "./Bar.js";
 import ordernate from "../utils/ordenate.js";
 
-class Chart extends Element {
+class Graph extends Element {
   constructor(props) {
     super(props);
 
@@ -35,9 +35,9 @@ class Chart extends Element {
   }
 
   prepare = () => {
-    const label = new Element({ className: "evolution-chart__label" });
+    const label = new Element({ className: "evolution-graph__label" });
 
-    const bars = new Element({ className: "evolution-chart__bars" });
+    const bars = new Element({ className: "evolution-graph__bars" });
     bars.setStyle(
       "height",
       `${(this.barWidth + this.gap) * this.data.length - this.gap}px`
@@ -47,11 +47,11 @@ class Chart extends Element {
       const newBar = new Bar({
         ...bar,
         width: this.barWidth,
-        className: `evolution-chart__bar${
+        className: `evolution-graph__bar${
           bar?.className?.length ? ` ${bar.className}` : ""
         }`,
         labelWidth: this.labelWidth,
-        chart: this,
+        graph: this,
         renderValue: this.renderValue,
       });
 
@@ -86,7 +86,7 @@ class Chart extends Element {
       );
 
       bar.update({
-        chart: this,
+        graph: this,
         newValue: this.data[index].values[currentEvolutionIndex],
         position: sortedData.indexOf(foundBar),
       });
@@ -94,4 +94,4 @@ class Chart extends Element {
   };
 }
 
-export default Chart;
+export default Graph;
