@@ -103,21 +103,25 @@ class EvolutionChart {
   };
 
   goToPreviousStep = () => {
+    this.stop();
     if (this.currentEvolutionIndex <= 0) return;
     this.updateChart("previous");
   };
 
   goToNextStep = () => {
+    this.stop();
     if (this.currentEvolutionIndex >= this.data[0]?.values?.length - 1) return;
     this.updateChart();
   };
 
   start = () => {
+    if (this.currentEvolutionIndex >= this.data[0]?.values?.length - 1) return;
+
     this.isPlaying = true;
-    this.goToNextStep();
+    this.updateChart();
 
     this.interval = setInterval(() => {
-      this.goToNextStep();
+      this.updateChart();
 
       if (this.currentEvolutionIndex >= this.data[0]?.values?.length - 1) {
         clearInterval(this.interval);

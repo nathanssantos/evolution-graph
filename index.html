@@ -20,7 +20,7 @@
         "
       >
         <button id="bt-previous">←</button>
-        <button id="bt-play">&#x23F5</button>
+        <button id="bt-play">&#x23F5;</button>
         <button id="bt-next">→</button>
       </div>
     </main>
@@ -36,27 +36,31 @@
         renderValue: (value) => `$${value}mi`,
       });
 
-      document
-        .getElementById("bt-previous")
-        .addEventListener("click", chart.goToPreviousStep, false);
+      const btPrevious = document.getElementById("bt-previous");
+      const btPlay = document.getElementById("bt-play");
+      const btNext = document.getElementById("bt-next");
 
-      document.getElementById("bt-play").addEventListener(
-        "click",
-        (event) => {
-          if (chart.isPlaying) {
-            event.target.textContent = "\u23F5"
-            chart.stop();
-          } else {
-            event.target.textContent = "\u23F8"
-            chart.start();
-          }
-        },
-        false
-      );
+      btPrevious.addEventListener("click", (event) => {
+        chart.stop();
+        btPlay.textContent = "\u23F5";
+        chart.goToPreviousStep();
+      });
 
-      document
-        .getElementById("bt-next")
-        .addEventListener("click", chart.goToNextStep, false);
+      btPlay.addEventListener("click", (event) => {
+        if (chart.isPlaying) {
+          chart.stop();
+          event.target.textContent = "\u23F5";
+        } else {
+          event.target.textContent = "\u23F8";
+          chart.start();
+        }
+      });
+
+      btNext.addEventListener("click", (event) => {
+        chart.stop();
+        btPlay.textContent = "\u23F5";
+        chart.goToNextStep();
+      });
     </script>
   </body>
 </html>
