@@ -1,5 +1,11 @@
 .evolution-graph {
   font-family: "Roboto", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.evolution-graph * {
+  box-sizing: border-box;
 }
 
 .evolution-graph__label {
@@ -7,7 +13,7 @@
   text-align: center;
 }
 
-.evolution-graph__bars {
+.evolution-graph__bars-container {
   position: relative;
 }
 
@@ -34,7 +40,6 @@
 }
 
 .evolution-graph__bar__track__fill {
-  min-width: 1px;
 }
 
 .evolution-graph__bar__track__value {
@@ -43,4 +48,36 @@
   transform: translateY(-50%);
   left: 8px;
   white-space: nowrap;
+}
+
+.evolution-graph__timeline {
+  width: 100%;
+  margin-top: 24px;
+  height: 14px;
+  position: relative;
+  margin-bottom: 90px;
+}
+
+.evolution-graph__timeline__track {
+  display: flex;
+  justify-content: space-between;
+}
+
+.evolution-graph__timeline__track__fill {
+  position: absolute;
+  left: 0;
+}
+
+.evolution-graph__timeline__track__marker {
+  border-radius: 50%;
+  transform: translateY(calc(-50% + 2px));
+  transition: all 250ms ease-in-out;
+  cursor: pointer;
+  position: relative;
+}
+
+.evolution-graph__timeline__track__marker__label {
+  position: absolute;
+  transform-origin: left;
+  font-size: 12px;
 }

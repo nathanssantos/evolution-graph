@@ -12,6 +12,11 @@ class EvolutionGraph {
       barWidth,
       gap,
       labelWidth,
+      timelineTrackWidth,
+      timelineMarkerSize,
+      timelineMarkerColor,
+      timelineTrackColor,
+      timelineTrackFillColor,
       renderValue,
       order,
     } = props;
@@ -26,6 +31,11 @@ class EvolutionGraph {
     this.barWidth = barWidth || 20;
     this.gap = gap || 20;
     this.labelWidth = labelWidth || 100;
+    this.timelineTrackWidth = timelineTrackWidth || 4;
+    this.timelineMarkerSize = timelineMarkerSize || 14;
+    this.timelineMarkerColor = timelineMarkerColor || "rgb(206, 206, 206)";
+    this.timelineTrackColor = timelineTrackColor || "rgb(206, 206, 206)";
+    this.timelineTrackFillColor = timelineTrackFillColor || "rgb(9, 132, 227)";
     this.renderValue = renderValue;
     this.order = order || "asc";
 
@@ -60,42 +70,52 @@ class EvolutionGraph {
   };
 
   createGraph = () => {
-    const {
-      data,
-      labels,
-      barWidth,
-      labelWidth,
-      gap,
-      order,
-      evolutionInterval,
-      transitionTopInterval,
-      renderValue,
-    } = this;
+    try {
+      const {
+        data,
+        labels,
+        barWidth,
+        labelWidth,
+        gap,
+        order,
+        evolutionInterval,
+        transitionTopInterval,
+        timelineTrackWidth,
+        timelineMarkerSize,
+        timelineMarkerColor,
+        timelineTrackColor,
+        timelineTrackFillColor,
+        renderValue,
+        setCurrentStep,
+      } = this;
 
-    const className = `evolution-graph${
-      this.className?.length ? ` ${this.className}` : ""
-    }`;
+      const graph = new Graph({
+        data,
+        labels,
+        className: `evolution-graph${
+          this.className?.length ? ` ${this.className}` : ""
+        }`,
+        label: this.labels[this.currentEvolutionIndex],
+        barWidth,
+        labelWidth,
+        gap,
+        higherValue: this.getHigherValue(),
+        order,
+        evolutionInterval,
+        transitionTopInterval,
+        timelineTrackWidth,
+        timelineMarkerSize,
+        timelineMarkerColor,
+        timelineTrackColor,
+        timelineTrackFillColor,
+        renderValue,
+        setCurrentStep,
+      });
 
-    const label = this.labels[this.currentEvolutionIndex];
-
-    const higherValue = this.getHigherValue();
-
-    const graph = new Graph({
-      data,
-      labels,
-      className,
-      label,
-      barWidth,
-      labelWidth,
-      gap,
-      higherValue,
-      order,
-      evolutionInterval,
-      transitionTopInterval,
-      renderValue,
-    });
-
-    return graph;
+      return graph;
+    } catch (error) {
+      console.warn(error);
+    }
   };
 
   prepare = () => {
@@ -120,6 +140,12 @@ class EvolutionGraph {
     this.stop();
     if (this.cantGoForward) return;
     this.updateGraph();
+  };
+
+  setCurrentStep = (step) => {
+    this.stop();
+    this.currentEvolutionIndex = step;
+    this.graph.update({ currentEvolutionIndex: this.currentEvolutionIndex });
   };
 
   start = () => {

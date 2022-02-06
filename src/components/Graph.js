@@ -1,6 +1,7 @@
 import Element from "./Element.js";
 import Bar from "./Bar.js";
 import ordernate from "../utils/ordenate.js";
+import Timeline from "./Timeline.js";
 
 class Graph extends Element {
   constructor(props) {
@@ -14,22 +15,36 @@ class Graph extends Element {
       gap,
       higherValue,
       order,
+      trackWidth,
       evolutionInterval,
       transitionTopInterval,
+      timelineTrackWidth,
+      timelineTrackColor,
+      timelineMarkerSize,
+      timelineMarkerColor,
+      timelineTrackFillColor,
       renderValue,
+      setCurrentStep,
     } = props;
 
     this.data = data;
     this.labels = labels;
     this.bars = [];
-    this.barWidth = barWidth || 20;
+    this.barWidth = barWidth;
     this.labelWidth = labelWidth;
     this.gap = gap;
     this.higherValue = higherValue;
     this.order = order;
+    this.trackWidth = trackWidth;
     this.evolutionInterval = evolutionInterval;
     this.transitionTopInterval = transitionTopInterval;
+    this.timelineTrackWidth = timelineTrackWidth;
+    this.timelineTrackColor = timelineTrackColor;
+    this.timelineMarkerColor = timelineMarkerColor;
+    this.timelineMarkerSize = timelineMarkerSize;
+    this.timelineTrackFillColor = timelineTrackFillColor;
     this.renderValue = renderValue;
+    this.setCurrentStep = setCurrentStep;
 
     this.prepare();
   }
@@ -37,36 +52,51 @@ class Graph extends Element {
   prepare = () => {
     const label = new Element({ className: "evolution-graph__label" });
 
-    const bars = new Element({ className: "evolution-graph__bars" });
-    bars.setStyle(
+    const barsContainer = new Element({
+      className: "evolution-graph__bars-container",
+    });
+    barsContainer.setStyle(
       "height",
       `${(this.barWidth + this.gap) * this.data.length - this.gap}px`
     );
 
-    for (const bar of this.data) {
-      const newBar = new Bar({
-        ...bar,
-        width: this.barWidth,
-        className: `evolution-graph__bar${
-          bar?.className?.length ? ` ${bar.className}` : ""
-        }`,
-        labelWidth: this.labelWidth,
-        graph: this,
-        renderValue: this.renderValue,
-      });
+    const bars = this.data.map(
+      (bar) =>
+        new Bar({
+          ...bar,
+          width: this.barWidth,
+          className: `evolution-graph__bar${
+            bar?.className?.length ? ` ${bar.className}` : ""
+          }`,
+          labelWidth: this.labelWidth,
+          graph: this,
+          renderValue: this.renderValue,
+        })
+    );
 
-      bars.body.append(newBar.body);
-
-      this.bars.push(newBar);
-    }
+    const timeline = new Timeline({
+      className: "evolution-graph__timeline",
+      graph: this,
+      markerSize: this.timelineMarkerSize,
+      markerColor: this.timelineMarkerColor,
+      trackWidth: this.timelineTrackWidth,
+      trackColor: this.timelineTrackColor,
+      trackFillColor: this.timelineTrackFillColor,
+      setCurrentStep: this.setCurrentStep,
+    });
 
     this.elements = {
       label,
-      bars,
+      barsContainer,
+      timeline,
     };
 
+    this.bars = bars;
+    this.timeline = timeline;
+    bars.forEach((bar) => barsContainer.body.append(bar.body));
     this.body.append(label.body);
-    this.body.append(bars.body);
+    this.body.append(barsContainer.body);
+    this.body.append(timeline.body);
   };
 
   update = ({ currentEvolutionIndex }) => {
@@ -90,6 +120,11 @@ class Graph extends Element {
         newValue: this.data[index].values[currentEvolutionIndex],
         position: sortedData.indexOf(foundBar),
       });
+    });
+
+    this.timeline.update({
+      graph: this,
+      currentEvolutionIndex,
     });
   };
 }
