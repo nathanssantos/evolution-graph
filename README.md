@@ -16,7 +16,6 @@
 
 ## To Do
 
-- Timeline
 - Graph title render callback
 - Bar title render callback
 - Bar background image prop
