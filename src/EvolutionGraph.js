@@ -26,7 +26,7 @@ class EvolutionGraph {
     this.className = className || "";
     this.data = data || [];
     this.labels = labels || [];
-    this.stepInterval = stepInterval || 2000;
+    this.stepInterval = stepInterval || 1500;
     this.transitionTopInterval = transitionTopInterval || this.stepInterval / 2;
     this.barWidth = barWidth || 20;
     this.gap = gap || 20;
@@ -37,7 +37,7 @@ class EvolutionGraph {
     this.timelineTrackColor = timelineTrackColor || "rgb(206, 206, 206)";
     this.timelineTrackFillColor = timelineTrackFillColor || "rgb(9, 132, 227)";
     this.renderValue = renderValue;
-    this.order = order || "asc";
+    this.order = order || "desc";
     this.onChange = onChange;
     this.currentStep = 0;
     this.interval = null;

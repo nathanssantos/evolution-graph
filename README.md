@@ -18,6 +18,6 @@
 
 - renderGraphTitle callback
 - renderBarLabel callback
-- onChange prop
 - graphOrientation prop
+- improve timeline behavior
 - Documetation
