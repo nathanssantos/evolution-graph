@@ -9,9 +9,9 @@ class EvolutionGraph {
       labels,
       stepInterval,
       transitionTopInterval,
-      barThickness,
       gap,
-      labelWidth,
+      barThickness,
+      barLabelWidth,
       timelineTrackThickness,
       timelineMarkerSize,
       timelineMarkerColor,
@@ -30,7 +30,7 @@ class EvolutionGraph {
     this.transitionTopInterval = transitionTopInterval || this.stepInterval / 2;
     this.barThickness = barThickness || 20;
     this.gap = gap || 20;
-    this.labelWidth = labelWidth || 100;
+    this.barLabelWidth = barLabelWidth || 100;
     this.timelineTrackThickness = timelineTrackThickness || 4;
     this.timelineMarkerSize = timelineMarkerSize || 14;
     this.timelineMarkerColor = timelineMarkerColor || "rgb(206, 206, 206)";
@@ -72,11 +72,11 @@ class EvolutionGraph {
       const {
         data,
         labels,
-        barThickness,
-        labelWidth,
-        gap,
-        order,
         stepInterval,
+        order,
+        gap,
+        barThickness,
+        barLabelWidth,
         transitionTopInterval,
         timelineTrackThickness,
         timelineMarkerSize,
@@ -93,13 +93,12 @@ class EvolutionGraph {
         className: `evolution-graph${
           this.className?.length ? ` ${this.className}` : ""
         }`,
-        label: this.labels[this.currentStep],
-        barThickness,
-        labelWidth,
-        gap,
-        higherValue: this.getHigherValue(),
-        order,
         stepInterval,
+        higherValue: this.getHigherValue(),
+        gap,
+        order,
+        barThickness,
+        barLabelWidth,
         transitionTopInterval,
         timelineTrackThickness,
         timelineMarkerSize,

@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.evolution-graph__label {
+.evolution-graph__title {
   margin-bottom: 24px;
   text-align: center;
 }
@@ -37,9 +37,6 @@
 .evolution-graph__bar__track {
   flex: 1;
   position: relative;
-}
-
-.evolution-graph__bar__track__fill {
 }
 
 .evolution-graph__bar__track__value {
@@ -74,6 +71,10 @@
   transition: all 250ms ease-in-out;
   cursor: pointer;
   position: relative;
+}
+
+.evolution-graph__timeline__track__marker:hover {
+ background-color: #fff !important;
 }
 
 .evolution-graph__timeline__track__marker__label {

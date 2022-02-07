@@ -54,14 +54,9 @@ class Timeline extends Element {
       marker.setStyle("height", `${this.markerSize}px`);
       marker.setStyle("background-color", this.markerColor);
 
-      marker.body.addEventListener("click", () => {
-        this.setCurrentStep(index, true);
-      });
-
       const markerLabel = new Element({
         className: "evolution-graph__timeline__track__marker__label",
       });
-
       markerLabel.setStyle(
         "transform",
         `rotate(-90deg) translateY(50%) translateX(calc(-100% - ${this.markerSize}px))`
@@ -70,6 +65,10 @@ class Timeline extends Element {
       markerLabel.body.innerHTML = label;
 
       marker.body.append(markerLabel.body);
+
+      marker.body.addEventListener("click", () => {
+        this.setCurrentStep(index, true);
+      });
 
       return marker;
     });

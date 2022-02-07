@@ -48,7 +48,7 @@
         border-width: 2px !important;
       }
 
-      .evolution-graph__label {
+      .evolution-graph__title {
         font-size: 24px;
         font-weight: bold;
       }
@@ -73,7 +73,7 @@
         labels,
         barThickness: 30,
         renderValue: (value) => `$${value}mi`,
-        onChange: (step) => console.log(step),
+        onChange: (currentStep) => console.log("Evolution Graph currentStep", currentStep),
       });
 
       const btPrevious = document.getElementById("bt-previous");
@@ -81,22 +81,22 @@
       const btNext = document.getElementById("bt-next");
 
       btPrevious.addEventListener("click", (event) => {
-        btPlay.textContent = "\u23F5";
+        btPlay.innerHTML = "\u23F5";
         graph.previous({ stopEvolution: true });
       });
 
       btPlay.addEventListener("click", (event) => {
         if (graph.isPlaying) {
           graph.stop();
-          event.target.textContent = "\u23F5";
+          event.target.innerHTML = "\u23F5";
         } else {
-          event.target.textContent = "\u23F8";
+          event.target.innerHTML = "\u23F8";
           graph.start();
         }
       });
 
       btNext.addEventListener("click", (event) => {
-        btPlay.textContent = "\u23F5";
+        btPlay.innerHTML = "\u23F5";
         graph.next({ stopEvolution: true });
       });
     </script>

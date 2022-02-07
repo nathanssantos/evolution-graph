@@ -11,7 +11,7 @@ class Graph extends Element {
       data,
       labels,
       barThickness,
-      labelWidth,
+      barLabelWidth,
       gap,
       higherValue,
       order,
@@ -29,14 +29,13 @@ class Graph extends Element {
 
     this.data = data;
     this.labels = labels;
-    this.bars = [];
-    this.barThickness = barThickness;
-    this.labelWidth = labelWidth;
+    this.stepInterval = stepInterval;
+    this.order = order;
     this.gap = gap;
     this.higherValue = higherValue;
-    this.order = order;
+    this.barThickness = barThickness;
+    this.barLabelWidth = barLabelWidth;
     this.trackThickness = trackThickness;
-    this.stepInterval = stepInterval;
     this.transitionTopInterval = transitionTopInterval;
     this.timelineTrackThickness = timelineTrackThickness;
     this.timelineTrackColor = timelineTrackColor;
@@ -50,7 +49,7 @@ class Graph extends Element {
   }
 
   prepare = () => {
-    const label = new Element({ className: "evolution-graph__label" });
+    const title = new Element({ className: "evolution-graph__title" });
 
     const barsContainer = new Element({
       className: "evolution-graph__bars-container",
@@ -68,7 +67,7 @@ class Graph extends Element {
           className: `evolution-graph__bar${
             bar?.className?.length ? ` ${bar.className}` : ""
           }`,
-          labelWidth: this.labelWidth,
+          labelWidth: this.barLabelWidth,
           graph: this,
           renderValue: this.renderValue,
         })
@@ -86,31 +85,26 @@ class Graph extends Element {
     });
 
     this.elements = {
-      label,
+      title,
       barsContainer,
+      bars,
       timeline,
     };
 
-    this.bars = bars;
-    this.timeline = timeline;
     bars.forEach((bar) => barsContainer.body.append(bar.body));
-    this.body.append(label.body);
+    this.body.append(title.body);
     this.body.append(barsContainer.body);
     this.body.append(timeline.body);
   };
 
   update = ({ currentStep }) => {
-    this.elements.label.body.innerHTML = this.labels[currentStep];
+    this.elements.title.body.innerHTML = this.labels[currentStep];
 
     const sortedData = [...this.data].sort((a, b) =>
-      ordernate(
-        a.values[currentStep],
-        b.values[currentStep],
-        this.order
-      )
+      ordernate(a.values[currentStep], b.values[currentStep], this.order)
     );
 
-    this.bars.forEach((bar, index) => {
+    this.elements.bars.forEach((bar, index) => {
       const foundBar = sortedData.find(
         ({ label }) => label === this.data[index]?.label
       );
@@ -122,7 +116,7 @@ class Graph extends Element {
       });
     });
 
-    this.timeline.update({
+    this.elements.timeline.update({
       graph: this,
       currentStep,
     });

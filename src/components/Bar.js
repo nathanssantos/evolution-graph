@@ -38,13 +38,11 @@ class Bar extends Element {
       type: "label",
       className: "evolution-graph__bar__label",
     });
-
     label.setStyle("min-width", `${this.labelWidth}px`);
 
     const labelText = new Element({
       className: "evolution-graph__bar__label__text",
     });
-
     labelText.body.innerHTML = this.label;
 
     const imageWrapper = new Element({
@@ -55,7 +53,6 @@ class Bar extends Element {
       type: "img",
       className: "evolution-graph__bar__image",
     });
-
     image.body.setAttribute("src", this.image);
 
     const track = new Element({
@@ -65,7 +62,6 @@ class Bar extends Element {
     const trackFill = new Element({
       className: "evolution-graph__bar__track__fill",
     });
-
     trackFill.setStyle("height", `${this.thickness}px`);
     trackFill.setStyle("background-color", this.color);
     trackFill.setStyle("border", `1px solid ${this.color}`);
@@ -78,7 +74,7 @@ class Bar extends Element {
     track.body.append(trackFill.body);
     track.body.append(trackValue.body);
     imageWrapper.body.append(image.body);
-    label.body.append(imageWrapper.body);
+    if (this.image?.length) label.body.append(imageWrapper.body);
     label.body.append(labelText.body);
 
     this.elements = {
