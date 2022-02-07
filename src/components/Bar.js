@@ -31,7 +31,7 @@ class Bar extends Element {
   prepare = ({ graph }) => {
     this.setStyle(
       "transition",
-      `all ${graph.evolutionInterval}ms linear, top ${graph.transitionTopInterval}ms linear`
+      `all ${graph.stepInterval}ms linear, top ${graph.transitionTopInterval}ms linear`
     );
 
     const label = new Element({
@@ -69,7 +69,7 @@ class Bar extends Element {
     trackFill.setStyle("height", `${this.width}px`);
     trackFill.setStyle("background-color", this.color);
     trackFill.setStyle("border", `1px solid ${this.color}`);
-    trackFill.setStyle("transition", `all ${graph.evolutionInterval}ms linear`);
+    trackFill.setStyle("transition", `all ${graph.stepInterval}ms linear`);
 
     const trackValue = new Element({
       className: "evolution-graph__bar__track__value",

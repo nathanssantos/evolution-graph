@@ -73,8 +73,9 @@
         labels,
         barWidth: 30,
         order: "desc",
-        evolutionInterval: 1000,
+        stepInterval: 1500,
         renderValue: (value) => `$${value}mi`,
+        onChange: (step) => console.log(step),
       });
 
       const btPrevious = document.getElementById("bt-previous");
@@ -82,9 +83,8 @@
       const btNext = document.getElementById("bt-next");
 
       btPrevious.addEventListener("click", (event) => {
-        graph.stop();
         btPlay.textContent = "\u23F5";
-        graph.goToPreviousStep();
+        graph.previous({ stopEvolution: true });
       });
 
       btPlay.addEventListener("click", (event) => {
@@ -98,9 +98,8 @@
       });
 
       btNext.addEventListener("click", (event) => {
-        graph.stop();
         btPlay.textContent = "\u23F5";
-        graph.goToNextStep();
+        graph.next({ stopEvolution: true });
       });
     </script>
   </body>

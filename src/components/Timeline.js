@@ -25,7 +25,7 @@ class Timeline extends Element {
   }
 
   prepare = ({ graph }) => {
-    this.setStyle("transition", `all ${graph.evolutionInterval}ms linear`);
+    this.setStyle("transition", `all ${graph.stepInterval}ms linear`);
     this.setStyle("height", `${this.markerSize + this.markerSize / 2}px`);
     this.setStyle(
       "padding-top",
@@ -44,7 +44,7 @@ class Timeline extends Element {
     trackFill.setStyle("height", `${this.trackWidth}px`);
     trackFill.setStyle("background-color", this.trackFillColor);
     trackFill.setStyle("border-radius", `${this.trackWidth / 2}px`);
-    trackFill.setStyle("transition", `all ${graph.evolutionInterval}ms linear`);
+    trackFill.setStyle("transition", `all ${graph.stepInterval}ms linear`);
 
     const markers = graph.labels.map((label, index) => {
       const marker = new Element({
@@ -55,7 +55,7 @@ class Timeline extends Element {
       marker.setStyle("background-color", this.markerColor);
 
       marker.body.addEventListener("click", () => {
-        this.setCurrentStep(index);
+        this.setCurrentStep(index, true);
       });
 
       const markerLabel = new Element({
@@ -85,10 +85,10 @@ class Timeline extends Element {
     this.body.append(track.body);
   };
 
-  update = ({ graph, currentEvolutionIndex }) => {
+  update = ({ graph, currentStep }) => {
     this.elements.trackFill.setStyle(
       "width",
-      `calc(${(currentEvolutionIndex / (graph.labels.length - 1)) * 100}%)`
+      `calc(${(currentStep / (graph.labels.length - 1)) * 100}%)`
     );
   };
 }

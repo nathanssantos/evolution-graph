@@ -16,7 +16,7 @@ class Graph extends Element {
       higherValue,
       order,
       trackWidth,
-      evolutionInterval,
+      stepInterval,
       transitionTopInterval,
       timelineTrackWidth,
       timelineTrackColor,
@@ -36,7 +36,7 @@ class Graph extends Element {
     this.higherValue = higherValue;
     this.order = order;
     this.trackWidth = trackWidth;
-    this.evolutionInterval = evolutionInterval;
+    this.stepInterval = stepInterval;
     this.transitionTopInterval = transitionTopInterval;
     this.timelineTrackWidth = timelineTrackWidth;
     this.timelineTrackColor = timelineTrackColor;
@@ -99,13 +99,13 @@ class Graph extends Element {
     this.body.append(timeline.body);
   };
 
-  update = ({ currentEvolutionIndex }) => {
-    this.elements.label.body.innerHTML = this.labels[currentEvolutionIndex];
+  update = ({ currentStep }) => {
+    this.elements.label.body.innerHTML = this.labels[currentStep];
 
     const sortedData = [...this.data].sort((a, b) =>
       ordernate(
-        a.values[currentEvolutionIndex],
-        b.values[currentEvolutionIndex],
+        a.values[currentStep],
+        b.values[currentStep],
         this.order
       )
     );
@@ -117,14 +117,14 @@ class Graph extends Element {
 
       bar.update({
         graph: this,
-        newValue: this.data[index].values[currentEvolutionIndex],
+        newValue: this.data[index].values[currentStep],
         position: sortedData.indexOf(foundBar),
       });
     });
 
     this.timeline.update({
       graph: this,
-      currentEvolutionIndex,
+      currentStep,
     });
   };
 }

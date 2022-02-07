@@ -7,7 +7,7 @@ class EvolutionGraph {
       className,
       data,
       labels,
-      evolutionInterval,
+      stepInterval,
       transitionTopInterval,
       barWidth,
       gap,
@@ -19,15 +19,15 @@ class EvolutionGraph {
       timelineTrackFillColor,
       renderValue,
       order,
+      onChange,
     } = props;
 
     this.target = target || document.body;
     this.className = className || "";
     this.data = data || [];
     this.labels = labels || [];
-    this.evolutionInterval = evolutionInterval || 2000;
-    this.transitionTopInterval =
-      transitionTopInterval || this.evolutionInterval / 2;
+    this.stepInterval = stepInterval || 2000;
+    this.transitionTopInterval = transitionTopInterval || this.stepInterval / 2;
     this.barWidth = barWidth || 20;
     this.gap = gap || 20;
     this.labelWidth = labelWidth || 100;
@@ -38,23 +38,21 @@ class EvolutionGraph {
     this.timelineTrackFillColor = timelineTrackFillColor || "rgb(9, 132, 227)";
     this.renderValue = renderValue;
     this.order = order || "asc";
-
-    this.currentEvolutionIndex = 0;
+    this.onChange = onChange;
+    this.currentStep = 0;
     this.interval = null;
-
-    this.graph = this.createGraph();
-
     this.isPlaying = false;
+    this.graph = this.createGraph();
 
     this.prepare();
   }
 
   get cantGoBack() {
-    return this.currentEvolutionIndex <= 0;
+    return this.currentStep <= 0;
   }
 
   get cantGoForward() {
-    return this.currentEvolutionIndex >= this.data[0]?.values?.length - 1;
+    return this.currentStep >= this.data[0]?.values?.length - 1;
   }
 
   getHigherValue = () => {
@@ -78,7 +76,7 @@ class EvolutionGraph {
         labelWidth,
         gap,
         order,
-        evolutionInterval,
+        stepInterval,
         transitionTopInterval,
         timelineTrackWidth,
         timelineMarkerSize,
@@ -95,13 +93,13 @@ class EvolutionGraph {
         className: `evolution-graph${
           this.className?.length ? ` ${this.className}` : ""
         }`,
-        label: this.labels[this.currentEvolutionIndex],
+        label: this.labels[this.currentStep],
         barWidth,
         labelWidth,
         gap,
         higherValue: this.getHigherValue(),
         order,
-        evolutionInterval,
+        stepInterval,
         transitionTopInterval,
         timelineTrackWidth,
         timelineMarkerSize,
@@ -119,45 +117,41 @@ class EvolutionGraph {
   };
 
   prepare = () => {
-    this.graph.update({ currentEvolutionIndex: this.currentEvolutionIndex });
+    this.graph.update({ currentStep: this.currentStep });
     this.target.append(this.graph.body);
   };
 
-  updateGraph = (direction) => {
-    this.currentEvolutionIndex =
-      this.currentEvolutionIndex + (direction === "previous" ? -1 : 1);
+  setCurrentStep = (step, stopEvolution) => {
+    if (stopEvolution) this.stop();
 
-    this.graph.update({ currentEvolutionIndex: this.currentEvolutionIndex });
+    if (step < 0 || step > this.labels.length - 1) return;
+
+    this.onChange(step);
+
+    this.currentStep = step;
+
+    this.graph.update({ currentStep: this.currentStep });
   };
 
-  goToPreviousStep = () => {
-    this.stop();
-    if (this.cantGoBack) return;
-    this.updateGraph("previous");
+  previous = ({ stopEvolution } = {}) => {
+    this.setCurrentStep(this.currentStep - 1, stopEvolution);
   };
 
-  goToNextStep = () => {
-    this.stop();
-    if (this.cantGoForward) return;
-    this.updateGraph();
-  };
-
-  setCurrentStep = (step) => {
-    this.stop();
-    this.currentEvolutionIndex = step;
-    this.graph.update({ currentEvolutionIndex: this.currentEvolutionIndex });
+  next = ({ stopEvolution } = {}) => {
+    this.setCurrentStep(this.currentStep + 1, stopEvolution);
   };
 
   start = () => {
     if (this.cantGoForward) return;
 
     this.isPlaying = true;
-    this.updateGraph();
+
+    this.next();
 
     this.interval = setInterval(() => {
-      this.updateGraph();
+      this.next();
       if (this.cantGoForward) clearInterval(this.interval);
-    }, this.evolutionInterval);
+    }, this.stepInterval);
   };
 
   stop = () => {
