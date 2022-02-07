@@ -18,8 +18,12 @@
 
 - Add action buttons
 - Add showActionButtons prop
-- Add renderGraphTitle callback
-- Add renderBarLabel callback
+- Add renderGraphTitle prop
+- Add renderBarLabel prop
+- Add showBarLabel prop
+- Add showBarValue prop
+- Add showBarImage prop
+- Add onClickBar prop
 - Improve timeline behavior
 - Add graphOrientation prop
-- Documetation
+- Documentation
