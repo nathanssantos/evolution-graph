@@ -16,8 +16,10 @@
 
 ## To Do
 
-- renderGraphTitle callback
-- renderBarLabel callback
-- graphOrientation prop
-- improve timeline behavior
+- Add action buttons
+- Add showActionButtons prop
+- Add renderGraphTitle callback
+- Add renderBarLabel callback
+- Improve timeline behavior
+- Add graphOrientation prop
 - Documetation
