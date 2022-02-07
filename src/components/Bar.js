@@ -45,16 +45,6 @@ class Bar extends Element {
     });
     labelText.body.innerHTML = this.label;
 
-    const imageWrapper = new Element({
-      className: "evolution-graph__bar__image-wrapper",
-    });
-
-    const image = new Element({
-      type: "img",
-      className: "evolution-graph__bar__image",
-    });
-    image.body.setAttribute("src", this.image);
-
     const track = new Element({
       className: "evolution-graph__bar__track",
     });
@@ -67,15 +57,32 @@ class Bar extends Element {
     trackFill.setStyle("border", `1px solid ${this.color}`);
     trackFill.setStyle("transition", `all ${graph.stepInterval}ms linear`);
 
+    const barData = new Element({
+      className: "evolution-graph__bar__data",
+    });
+
+    const imageWrapper = new Element({
+      className: "evolution-graph__bar__image-wrapper",
+    });
+    imageWrapper.setStyle("max-width", `${graph.barThickness}px`);
+    imageWrapper.setStyle("min-width", `${graph.barThickness}px`);
+
+    const image = new Element({
+      type: "img",
+      className: "evolution-graph__bar__image",
+    });
+    image.body.setAttribute("src", this.image);
+
     const trackValue = new Element({
       className: "evolution-graph__bar__track__value",
     });
 
-    track.body.append(trackFill.body);
-    track.body.append(trackValue.body);
-    imageWrapper.body.append(image.body);
-    if (this.image?.length) label.body.append(imageWrapper.body);
     label.body.append(labelText.body);
+    track.body.append(trackFill.body);
+    imageWrapper.body.append(image.body);
+    if (this.image?.length) barData.body.append(imageWrapper.body);
+    barData.body.append(trackValue.body);
+    trackFill.body.append(barData.body);
 
     this.elements = {
       label,
@@ -98,7 +105,7 @@ class Bar extends Element {
     this.setStyle("top", `${(this.thickness + graph.gap) * this.position}px`);
     this.elements.trackFill.setStyle(
       "width",
-      `calc(${(this.value / graph.higherValue) * 100}%`
+      `${(this.value / graph.higherValue) * 100}%`
     );
 
     this.elements.trackValue.body.innerHTML = this.renderValue

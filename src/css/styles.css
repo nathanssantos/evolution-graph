@@ -2,6 +2,7 @@
   font-family: "Roboto", Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 .evolution-graph * {
@@ -30,21 +31,33 @@
   align-items: center;
 }
 
-.evolution-graph__bar__image {
-  flex-direction: column;
-}
-
 .evolution-graph__bar__track {
   flex: 1;
   position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.evolution-graph__bar__track__fill {
+  position: relative;
+}
+.evolution-graph__bar__data {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 50%;
+  transform: translate(calc(100% + 6px), -50%);
+  right: 0;
 }
 
 .evolution-graph__bar__track__value {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 8px;
   white-space: nowrap;
+  padding-left: 4px;
+}
+
+.evolution-graph__bar__image-wrapper {
+  flex-direction: column;
+  display: flex;
 }
 
 .evolution-graph__timeline {
@@ -74,7 +87,7 @@
 }
 
 .evolution-graph__timeline__track__marker:hover {
- background-color: #fff !important;
+  background-color: #fff !important;
 }
 
 .evolution-graph__timeline__track__marker__label {
