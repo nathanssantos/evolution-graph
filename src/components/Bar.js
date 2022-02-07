@@ -7,7 +7,7 @@ class Bar extends Element {
     const {
       position,
       value,
-      width,
+      thickness,
       label,
       labelWidth,
       color,
@@ -18,7 +18,7 @@ class Bar extends Element {
 
     this.position = position;
     this.value = value;
-    this.width = width;
+    this.thickness = thickness;
     this.label = label;
     this.labelWidth = labelWidth;
     this.color = color;
@@ -66,7 +66,7 @@ class Bar extends Element {
       className: "evolution-graph__bar__track__fill",
     });
 
-    trackFill.setStyle("height", `${this.width}px`);
+    trackFill.setStyle("height", `${this.thickness}px`);
     trackFill.setStyle("background-color", this.color);
     trackFill.setStyle("border", `1px solid ${this.color}`);
     trackFill.setStyle("transition", `all ${graph.stepInterval}ms linear`);
@@ -99,7 +99,7 @@ class Bar extends Element {
     this.value = newValue;
     this.position = position;
 
-    this.setStyle("top", `${(this.width + graph.gap) * this.position}px`);
+    this.setStyle("top", `${(this.thickness + graph.gap) * this.position}px`);
     this.elements.trackFill.setStyle(
       "width",
       `calc(${(this.value / graph.higherValue) * 100}%`

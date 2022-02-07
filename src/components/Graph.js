@@ -10,15 +10,15 @@ class Graph extends Element {
     const {
       data,
       labels,
-      barWidth,
+      barThickness,
       labelWidth,
       gap,
       higherValue,
       order,
-      trackWidth,
+      trackThickness,
       stepInterval,
       transitionTopInterval,
-      timelineTrackWidth,
+      timelineTrackThickness,
       timelineTrackColor,
       timelineMarkerSize,
       timelineMarkerColor,
@@ -30,15 +30,15 @@ class Graph extends Element {
     this.data = data;
     this.labels = labels;
     this.bars = [];
-    this.barWidth = barWidth;
+    this.barThickness = barThickness;
     this.labelWidth = labelWidth;
     this.gap = gap;
     this.higherValue = higherValue;
     this.order = order;
-    this.trackWidth = trackWidth;
+    this.trackThickness = trackThickness;
     this.stepInterval = stepInterval;
     this.transitionTopInterval = transitionTopInterval;
-    this.timelineTrackWidth = timelineTrackWidth;
+    this.timelineTrackThickness = timelineTrackThickness;
     this.timelineTrackColor = timelineTrackColor;
     this.timelineMarkerColor = timelineMarkerColor;
     this.timelineMarkerSize = timelineMarkerSize;
@@ -57,14 +57,14 @@ class Graph extends Element {
     });
     barsContainer.setStyle(
       "height",
-      `${(this.barWidth + this.gap) * this.data.length - this.gap}px`
+      `${(this.barThickness + this.gap) * this.data.length - this.gap}px`
     );
 
     const bars = this.data.map(
       (bar) =>
         new Bar({
           ...bar,
-          width: this.barWidth,
+          thickness: this.barThickness,
           className: `evolution-graph__bar${
             bar?.className?.length ? ` ${bar.className}` : ""
           }`,
@@ -79,7 +79,7 @@ class Graph extends Element {
       graph: this,
       markerSize: this.timelineMarkerSize,
       markerColor: this.timelineMarkerColor,
-      trackWidth: this.timelineTrackWidth,
+      trackThickness: this.timelineTrackThickness,
       trackColor: this.timelineTrackColor,
       trackFillColor: this.timelineTrackFillColor,
       setCurrentStep: this.setCurrentStep,

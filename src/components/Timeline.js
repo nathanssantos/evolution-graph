@@ -7,7 +7,7 @@ class Timeline extends Element {
     const {
       markerSize,
       markerColor,
-      trackWidth,
+      trackThickness,
       trackFillColor,
       trackColor,
       graph,
@@ -16,7 +16,7 @@ class Timeline extends Element {
 
     this.markerSize = markerSize;
     this.markerColor = markerColor;
-    this.trackWidth = trackWidth;
+    this.trackThickness = trackThickness;
     this.trackFillColor = trackFillColor;
     this.trackColor = trackColor;
     this.setCurrentStep = setCurrentStep;
@@ -29,21 +29,21 @@ class Timeline extends Element {
     this.setStyle("height", `${this.markerSize + this.markerSize / 2}px`);
     this.setStyle(
       "padding-top",
-      `${this.markerSize / 2 + this.trackWidth / 2}px`
+      `${this.markerSize / 2 + this.trackThickness / 2}px`
     );
 
     const track = new Element({
       className: "evolution-graph__timeline__track",
     });
-    track.setStyle("height", `${this.trackWidth}px`);
+    track.setStyle("height", `${this.trackThickness}px`);
     track.setStyle("background-color", this.trackColor);
 
     const trackFill = new Element({
       className: "evolution-graph__timeline__track__fill",
     });
-    trackFill.setStyle("height", `${this.trackWidth}px`);
+    trackFill.setStyle("height", `${this.trackThickness}px`);
     trackFill.setStyle("background-color", this.trackFillColor);
-    trackFill.setStyle("border-radius", `${this.trackWidth / 2}px`);
+    trackFill.setStyle("border-radius", `${this.trackThickness / 2}px`);
     trackFill.setStyle("transition", `all ${graph.stepInterval}ms linear`);
 
     const markers = graph.labels.map((label, index) => {
