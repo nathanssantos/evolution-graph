@@ -57,7 +57,7 @@ class Bar extends Element {
     trackFill.setStyle("border", `1px solid ${this.color}`);
     trackFill.setStyle("transition", `all ${graph.stepInterval}ms linear`);
 
-    const barData = new Element({
+    const data = new Element({
       className: "evolution-graph__bar__data",
     });
 
@@ -77,13 +77,6 @@ class Bar extends Element {
       className: "evolution-graph__bar__track__value",
     });
 
-    label.body.append(labelText.body);
-    track.body.append(trackFill.body);
-    imageWrapper.body.append(image.body);
-    if (this.image?.length) barData.body.append(imageWrapper.body);
-    barData.body.append(trackValue.body);
-    trackFill.body.append(barData.body);
-
     this.elements = {
       label,
       labelText,
@@ -92,8 +85,15 @@ class Bar extends Element {
       track,
       trackFill,
       trackValue,
+      data,
     };
 
+    label.body.append(labelText.body);
+    track.body.append(trackFill.body);
+    imageWrapper.body.append(image.body);
+    if (this.image?.length) data.body.append(imageWrapper.body);
+    data.body.append(trackValue.body);
+    trackFill.body.append(data.body);
     this.body.append(label.body);
     this.body.append(track.body);
   };

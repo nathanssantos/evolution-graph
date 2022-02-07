@@ -2,7 +2,6 @@
   font-family: "Roboto", Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
 }
 
 .evolution-graph * {
@@ -87,7 +86,7 @@
 }
 
 .evolution-graph__timeline__track__marker:hover {
-  background-color: #fff !important;
+  background-color: #aaa !important;
 }
 
 .evolution-graph__timeline__track__marker__label {

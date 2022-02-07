@@ -104,7 +104,13 @@ class Graph extends Element {
       ordernate(a.values[currentStep], b.values[currentStep], this.order)
     );
 
+    let higherBarDataWidth = 0;
+
     this.elements.bars.forEach((bar, index) => {
+      const barDataWidth = Number(
+        window.getComputedStyle(bar.elements.data.body).width.replace("px", "")
+      );
+
       const foundBar = sortedData.find(
         ({ label }) => label === this.data[index]?.label
       );
@@ -114,8 +120,22 @@ class Graph extends Element {
         newValue: this.data[index].values[currentStep],
         position: sortedData.indexOf(foundBar),
       });
+
+      if (barDataWidth > higherBarDataWidth) {
+        higherBarDataWidth = barDataWidth + 10;
+        console.log(higherBarDataWidth);
+      }
     });
 
+    this.elements.barsContainer.setStyle(
+      "margin-right",
+      `${Math.ceil(higherBarDataWidth)}px`
+    );
+
+    this.elements.barsContainer.setStyle(
+      "transition",
+      `all ${this.stepInterval}ms linear`
+    );
     this.elements.timeline.update({
       graph: this,
       currentStep,
