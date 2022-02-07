@@ -1,6 +1,6 @@
 # Evolution Graph
 
-### Vanilla JS fully customizable and animated evolution graph.
+### Vanilla JS fully customizable, responsive and animated evolution graph.
 
 #
 
