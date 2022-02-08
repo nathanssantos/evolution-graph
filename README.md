@@ -98,8 +98,8 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 | **`timelineMarkerColor`**    | _String_   | `#cecece`          | Background color applied on the timeline markers.                                           |
 | **`timelineTrackColor`**     | _String_   | `#cecece`          | Background color applied on the timeline track.                                             |
 | **`timelineTrackFillColor`** | _String_   | `#0984e3`          | Background color applied on the timeline track fill.                                        |
-| **`renderValue`**            | _Function_ | --                 | Callback function for label handling.                                                       |
-| **`onChange`**               | _Function_ | --                 | Function called when the current step changes.                                              |
+| **`renderValue`**            | _Function_ | --                 | Callback function for label handling. See **Usage** for an example.                         |
+| **`onChange`**               | _Function_ | --                 | Function called when the current step changes. See **Usage** for an example.                |
 
 ## To Do
 
