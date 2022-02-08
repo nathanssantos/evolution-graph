@@ -87,17 +87,17 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 | **`data`**                   | _Array_    | `[]`               | Array of objects, each one representing a bar on the graph. See **Usage** for an example.   |
 | **`labels`**                 | _Array_    | `[]`               | Array of strings, each one representing a label on the graph. See **Usage** for an example. |
 | **`className`**              | _String_   | `""`               | Custom css class applied on the graph container.                                            |
-| **`stepInterval`**           | _Number_   | `1500`             | Step transition time in milliseconds.                                                       |
 | **`order`**                  | _String_   | `"desc"`           | Graph bars ordenation. Can be `"desc"` or `"asc"`.                                          |
-| **`gap`**                    | _Number_   | `10`               | Gap in pixels applied between graph bars.                                                   |
+| **`stepInterval`**           | _Number_   | `1500`             | Step transition time in milliseconds.                                                       |
 | **`transitionTopInterval`**  | _Number_   | `stepInterval / 2` | Step transition time in milliseconds.                                                       |
+| **`gap`**                    | _Number_   | `10`               | Gap in pixels applied between graph bars.                                                   |
 | **`barThickness`**           | _Number_   | `20`               | Graph bar thickness in pixels.                                                              |
 | **`barLabelWidth`**          | _Number_   | `100`              | Width in pixels applied on all bar labels.                                                  |
 | **`timelineTrackThickness`** | _Number_   | `4`                | Width in pixels applied on the timeline track.                                              |
-| **`timelineMarkerSize`**     | _Number_   | `14`               | Width in pixels applied on the timeline markers.                                            |
-| **`timelineMarkerColor`**    | _String_   | `#cecece`          | Background color applied on the timeline markers.                                           |
 | **`timelineTrackColor`**     | _String_   | `#cecece`          | Background color applied on the timeline track.                                             |
 | **`timelineTrackFillColor`** | _String_   | `#0984e3`          | Background color applied on the timeline track fill.                                        |
+| **`timelineMarkerSize`**     | _Number_   | `14`               | Width in pixels applied on the timeline markers.                                            |
+| **`timelineMarkerColor`**    | _String_   | `#cecece`          | Background color applied on the timeline markers.                                           |
 | **`renderValue`**            | _Function_ | --                 | Callback function for label handling.                                                       |
 | **`onChange`**               | _Function_ | --                 | Function called when the current step changes.                                              |
 
@@ -105,6 +105,7 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 
 - Improve documentation with EvolutionGraph class actions
 - Types
+- Add autoPlay prop
 - Add action buttons
 - Add showActionButtons prop
 - Add renderGraphTitle prop

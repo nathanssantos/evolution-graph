@@ -3,38 +3,38 @@ import Graph from "./components/Graph.js";
 class EvolutionGraph {
   constructor(props) {
     const {
-      className,
       data,
       labels,
+      className,
+      order,
       stepInterval,
       transitionTopInterval,
       gap,
       barThickness,
       barLabelWidth,
       timelineTrackThickness,
-      timelineMarkerSize,
-      timelineMarkerColor,
       timelineTrackColor,
       timelineTrackFillColor,
-      order,
+      timelineMarkerSize,
+      timelineMarkerColor,
       renderValue,
       onChange,
     } = props;
 
-    this.className = className || "";
     this.data = data || [];
     this.labels = labels || [];
-    this.stepInterval = stepInterval || 1500;
+    this.className = className || "";
     this.order = order || "desc";
-    this.gap = gap || 10;
+    this.stepInterval = stepInterval || 1500;
     this.transitionTopInterval = transitionTopInterval || this.stepInterval / 2;
+    this.gap = gap || 10;
     this.barThickness = barThickness || 20;
     this.barLabelWidth = barLabelWidth || 100;
     this.timelineTrackThickness = timelineTrackThickness || 4;
-    this.timelineMarkerSize = timelineMarkerSize || 14;
-    this.timelineMarkerColor = timelineMarkerColor || "rgb(206, 206, 206)";
     this.timelineTrackColor = timelineTrackColor || "rgb(206, 206, 206)";
     this.timelineTrackFillColor = timelineTrackFillColor || "rgb(9, 132, 227)";
+    this.timelineMarkerSize = timelineMarkerSize || 14;
+    this.timelineMarkerColor = timelineMarkerColor || "rgb(206, 206, 206)";
     this.renderValue = renderValue;
     this.onChange = onChange;
 
@@ -115,17 +115,17 @@ class EvolutionGraph {
       const {
         data,
         labels,
-        stepInterval,
         order,
+        stepInterval,
+        transitionTopInterval,
         gap,
         barThickness,
         barLabelWidth,
-        transitionTopInterval,
         timelineTrackThickness,
-        timelineMarkerSize,
-        timelineMarkerColor,
         timelineTrackColor,
         timelineTrackFillColor,
+        timelineMarkerSize,
+        timelineMarkerColor,
         renderValue,
         setCurrentStep,
       } = this;
@@ -136,19 +136,19 @@ class EvolutionGraph {
         className: `evolution-graph${
           this.className?.length ? ` ${this.className}` : ""
         }`,
-        stepInterval,
-        higherValue: this.getHigherValue(),
-        gap,
         order,
+        stepInterval,
+        transitionTopInterval,
+        gap,
         barThickness,
         barLabelWidth,
-        transitionTopInterval,
         timelineTrackThickness,
-        timelineMarkerSize,
-        timelineMarkerColor,
         timelineTrackColor,
         timelineTrackFillColor,
+        timelineMarkerSize,
+        timelineMarkerColor,
         renderValue,
+        higherValue: this.getHigherValue(),
         setCurrentStep,
       });
 

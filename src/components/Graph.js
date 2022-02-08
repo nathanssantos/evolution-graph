@@ -10,40 +10,38 @@ class Graph extends Element {
     const {
       data,
       labels,
-      barThickness,
-      barLabelWidth,
-      gap,
-      higherValue,
       order,
-      trackThickness,
       stepInterval,
       transitionTopInterval,
+      gap,
+      barThickness,
+      barLabelWidth,
       timelineTrackThickness,
       timelineTrackColor,
+      timelineTrackFillColor,
       timelineMarkerSize,
       timelineMarkerColor,
-      timelineTrackFillColor,
       renderValue,
       setCurrentStep,
+      higherValue,
     } = props;
 
     this.data = data;
     this.labels = labels;
-    this.stepInterval = stepInterval;
     this.order = order;
+    this.stepInterval = stepInterval;
+    this.transitionTopInterval = transitionTopInterval;
     this.gap = gap;
-    this.higherValue = higherValue;
     this.barThickness = barThickness;
     this.barLabelWidth = barLabelWidth;
-    this.trackThickness = trackThickness;
-    this.transitionTopInterval = transitionTopInterval;
     this.timelineTrackThickness = timelineTrackThickness;
     this.timelineTrackColor = timelineTrackColor;
+    this.timelineTrackFillColor = timelineTrackFillColor;
     this.timelineMarkerColor = timelineMarkerColor;
     this.timelineMarkerSize = timelineMarkerSize;
-    this.timelineTrackFillColor = timelineTrackFillColor;
     this.renderValue = renderValue;
     this.setCurrentStep = setCurrentStep;
+    this.higherValue = higherValue;
 
     this.prepare();
   }
@@ -74,13 +72,13 @@ class Graph extends Element {
     );
 
     const timeline = new Timeline({
-      className: "evolution-graph__timeline",
       graph: this,
-      markerSize: this.timelineMarkerSize,
-      markerColor: this.timelineMarkerColor,
+      className: "evolution-graph__timeline",
       trackThickness: this.timelineTrackThickness,
       trackColor: this.timelineTrackColor,
       trackFillColor: this.timelineTrackFillColor,
+      markerSize: this.timelineMarkerSize,
+      markerColor: this.timelineMarkerColor,
       setCurrentStep: this.setCurrentStep,
     });
 
@@ -107,9 +105,9 @@ class Graph extends Element {
     let higherBarDataWidth = 0;
 
     this.elements.bars.forEach((bar, index) => {
-      const barDataWidth = Number(
-        window.getComputedStyle(bar.elements.data.body).width.replace("px", "")
-      );
+      const barDataWidth = window
+        .getComputedStyle(bar.elements.data.body)
+        .width.replace("px", "");
 
       const foundBar = sortedData.find(
         ({ label }) => label === this.data[index]?.label
@@ -135,7 +133,7 @@ class Graph extends Element {
       "transition",
       `all ${this.stepInterval}ms linear`
     );
-    
+
     this.elements.timeline.update({
       graph: this,
       currentStep,

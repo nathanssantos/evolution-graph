@@ -5,20 +5,20 @@ class Timeline extends Element {
     super(props);
 
     const {
+      graph,
+      trackThickness,
+      trackColor,
+      trackFillColor,
       markerSize,
       markerColor,
-      trackThickness,
-      trackFillColor,
-      trackColor,
-      graph,
       setCurrentStep,
     } = props;
 
+    this.trackThickness = trackThickness;
+    this.trackColor = trackColor;
+    this.trackFillColor = trackFillColor;
     this.markerSize = markerSize;
     this.markerColor = markerColor;
-    this.trackThickness = trackThickness;
-    this.trackFillColor = trackFillColor;
-    this.trackColor = trackColor;
     this.setCurrentStep = setCurrentStep;
 
     this.prepare({ graph });
