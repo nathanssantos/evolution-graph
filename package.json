@@ -1,6 +1,6 @@
 {
   "name": "evolution-graph",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vanilla JavaScript fully customizable, responsive and animated evolution graph.",
   "main": "index.js",
   "repository": "https://github.com/nathanssantos/evolution-graph",
@@ -8,5 +8,17 @@
     "name": "Nathan Silva Santos",
     "email": "nathansilvasantos@gmail.com"
   },
+  "keywords": [
+    "graph",
+    "chart",
+    "evolution",
+    "animated",
+    "responsive",
+    "customizable",
+    "css",
+    "vanilla",
+    "js",
+    "javascript"
+  ],
   "license": "MIT"
 }
