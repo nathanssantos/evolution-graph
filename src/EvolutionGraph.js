@@ -38,6 +38,7 @@ class EvolutionGraph {
     this.renderValue = renderValue;
     this.onChange = onChange;
 
+    this.mounted = false;
     this.isPlaying = false;
     this.interval = null;
     this.currentStep = 0;
@@ -158,7 +159,10 @@ class EvolutionGraph {
   };
 
   create = (selector) => {
-    document.querySelector(selector).append(this.graph.body);
+    if (!this.mounted) {
+      document.querySelector(selector).append(this.graph.body);
+      this.mounted = true;
+    }
   };
 }
 
