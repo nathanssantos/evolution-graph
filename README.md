@@ -87,6 +87,7 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 
 ## To Do
 
+- Improve documentation with EvolutionGraph class actions
 - Types
 - Add action buttons
 - Add showActionButtons prop
@@ -99,4 +100,3 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 - Control z-index on change bar positions
 - Improve timeline behavior
 - Add graphOrientation prop
-- Improve documentation
