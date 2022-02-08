@@ -44,7 +44,7 @@ class EvolutionGraph {
     this.interval = null;
     this.currentStep = 0;
 
-    this.graph = this.createGraph();
+    this.graph = this.build();
 
     this.prepare();
   }
@@ -69,7 +69,49 @@ class EvolutionGraph {
     return higherValue;
   };
 
-  createGraph = () => {
+  setCurrentStep = (step, stopEvolution) => {
+    if (stopEvolution) this.stop();
+
+    if (step < 0 || step > this.labels.length - 1) return;
+
+    if (this.onChange) this.onChange(step);
+
+    this.currentStep = step;
+
+    this.graph.update({ currentStep: this.currentStep });
+  };
+
+  previous = ({ stopEvolution } = {}) => {
+    this.setCurrentStep(this.currentStep - 1, stopEvolution);
+  };
+
+  next = ({ stopEvolution } = {}) => {
+    this.setCurrentStep(this.currentStep + 1, stopEvolution);
+  };
+
+  start = () => {
+    if (this.cantGoForward) return;
+
+    this.isPlaying = true;
+
+    this.next();
+
+    this.interval = setInterval(() => {
+      this.next();
+      if (this.cantGoForward) clearInterval(this.interval);
+    }, this.stepInterval);
+  };
+
+  stop = () => {
+    this.isPlaying = false;
+    clearInterval(this.interval);
+  };
+
+  prepare = () => {
+    this.graph.update({ currentStep: this.currentStep });
+  };
+
+  build = () => {
     try {
       const {
         data,
@@ -117,48 +159,7 @@ class EvolutionGraph {
     }
   };
 
-  prepare = () => {
-    this.graph.update({ currentStep: this.currentStep });
-    this.target.append(this.graph.body);
-  };
-
-  setCurrentStep = (step, stopEvolution) => {
-    if (stopEvolution) this.stop();
-
-    if (step < 0 || step > this.labels.length - 1) return;
-
-    this.onChange(step);
-
-    this.currentStep = step;
-
-    this.graph.update({ currentStep: this.currentStep });
-  };
-
-  previous = ({ stopEvolution } = {}) => {
-    this.setCurrentStep(this.currentStep - 1, stopEvolution);
-  };
-
-  next = ({ stopEvolution } = {}) => {
-    this.setCurrentStep(this.currentStep + 1, stopEvolution);
-  };
-
-  start = () => {
-    if (this.cantGoForward) return;
-
-    this.isPlaying = true;
-
-    this.next();
-
-    this.interval = setInterval(() => {
-      this.next();
-      if (this.cantGoForward) clearInterval(this.interval);
-    }, this.stepInterval);
-  };
-
-  stop = () => {
-    this.isPlaying = false;
-    clearInterval(this.interval);
-  };
+  create = () => this.graph.body;
 }
 
 export default EvolutionGraph;

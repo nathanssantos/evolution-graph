@@ -209,7 +209,6 @@
       ];
 
       const graph = new EvolutionGraph({
-        target: document.getElementById("evolution-graph-example"),
         data,
         labels,
         barThickness: 30,
@@ -241,6 +240,8 @@
         btPlay.innerHTML = playIcon;
         graph.next({ stopEvolution: true });
       });
+
+      document.getElementById("evolution-graph-example").append(graph.create());
     </script>
   </body>
 </html>
