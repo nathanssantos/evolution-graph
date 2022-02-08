@@ -86,10 +86,10 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 | **`labels`**                 | _Array_    | `[]`               | Array of strings, each one representing a label on the graph. See **Usage** for an example. |
 | **`className`**              | _String_   | `""`               | Custom css class applied on the graph container.                                            |
 | **`stepInterval`**           | _Number_   | `1500`             | Step transition time in milliseconds.                                                       |
-| **`order`**                  | _String_   | `"desc"`           | Graph bars ordenation. Can be `"desc"` or `"asc"`. `asc`.                                   |
-| **`gap`**                    | _Number_   | `10`               | Gap between graph bars.                                                                     |
-| **`transitionTopInterval`**  | _Number_   | `stepInterval / 2` | Step transition time in and interval between steps when de the graph is playing.            |
-| **`barThickness`**           | _Number_   | `20`               | Graph bar thickness.                                                                        |
+| **`order`**                  | _String_   | `"desc"`           | Graph bars ordenation. Can be `"desc"` or `"asc"`.                                          |
+| **`gap`**                    | _Number_   | `10`               | Gap in pixels applied between graph bars.                                                   |
+| **`transitionTopInterval`**  | _Number_   | `stepInterval / 2` | Step transition time in milliseconds.                                                       |
+| **`barThickness`**           | _Number_   | `20`               | Graph bar thickness in pixels.                                                              |
 | **`barLabelWidth`**          | _Number_   | `100`              | Width in pixels applied on all bar labels.                                                  |
 | **`timelineTrackThickness`** | _Number_   | `4`                | Width in pixels applied on the timeline track.                                              |
 | **`timelineMarkerSize`**     | _Number_   | `14`               | Width in pixels applied on the timeline markers.                                            |
