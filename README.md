@@ -16,7 +16,7 @@ $ yarn add evolution-graph
 
 # Example
 
-### [Customized graph demo](https://nathanssantos.github.io/evolution-graph)
+[Customized graph demo](https://nathanssantos.github.io/evolution-graph)
 
 # Usage
 
