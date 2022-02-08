@@ -1,7 +1,7 @@
 {
   "name": "evolution-graph",
   "version": "1.0.10",
-  "description": "Vanilla JavaScript fully customizable, responsive and animated evolution graph.",
+  "description": "Animated, responsive and fully customizable evolution graph built with Vanilla JavaScript.",
   "main": "index.js",
   "repository": "https://github.com/nathanssantos/evolution-graph",
   "author": {
