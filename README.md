@@ -1,4 +1,4 @@
-# `Evolution Graph`
+# evolution-graph
 
 _Vanilla JavaScript fully customizable, responsive and animated evolution graph._
 
@@ -69,25 +69,25 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 
 # Props
 
-| Prop                         | Type             | Default                   | Description                                                                                      |
-| :--------------------------- | :--------------- | :------------------------ | :----------------------------------------------------------------------------------------------- |
-| **`target`**                 | _`HTML element`_ | `document.body`           | HTML element where the graph will be rendered.                                                   |
-| **`className`**              | _`String`_       | `""`                      | Custom css class applied on the graph container.                                                 |
-| **`data`**                   | _`Array`_        | `[]`                      | Array of objects, each one representing a bar on the graph. See **Usage** for the object format. |
-| **`labels`**                 | _`Array`_        | `[]`                      | Array of strings, each one representing a label on the graph. See **Usage** for an example.      |
-| **`stepInterval`**           | _`Number`_       | `1500` milliseconds       | Step transition time in and interval between steps when de the graph is playing.                 |
-| **`order`**                  | _`String`_       | `desc`                    | Graph bars ordenation. Can be `desc` or `asc`. `asc`.                                            |
-| **`gap`**                    | _`Number`_       | `10` pixels               | Gap between graph bars.                                                                          |
-| **`transitionTopInterval`**  | _`Number`_       | stepInterval / 2          | Step transition time in and interval between steps when de the graph is playing.                 |
-| **`barThickness`**           | _`Number`_       | `20` pixels               | Graph bar thickness.                                                                             |
-| **`barLabelWidth`**          | _`Number`_       | `100` pixels              | Width applied on all bar labels.                                                                 |
-| **`timelineTrackThickness`** | _`Number`_       | `4` pixels                | Width applied on the timeline track.                                                             |
-| **`timelineMarkerSize`**     | _`Number`_       | `14` pixels               | Width applied on the timeline markers.                                                           |
-| **`timelineMarkerColor`**    | _`String`_       | `rgb(206, 206, 206)`      | Background color applied on the timeline markers.                                                |
-| **`timelineTrackColor`**     | _`String`_       | `rgb(206, 206, 206)`      | Background color applied on the timeline track.                                                  |
-| **`timelineTrackFillColor`** | _`String`_       | `rgb(9, 132, 227)`        | Background color applied on the timeline track fill.                                             |
-| **`renderValue`**            | _`Function`_     | `(label:String) => label` | Callback function for label handling.                                                            |
-| **`onChange`**               | _`Function`_     | `(step:Number) => step`   | Function called when the current step changes.                                                   |
+| Prop                         | Type           | Default                   | Description                                                                                 |
+| :--------------------------- | :------------- | :------------------------ | :------------------------------------------------------------------------------------------ |
+| **`target`**                 | _HTML element_ | `document.body`           | HTML element where the graph will be rendered.                                              |
+| **`className`**              | _String_       | `""`                      | Custom css class applied on the graph container.                                            |
+| **`data`**                   | _Array_        | `[]`                      | Array of objects, each one representing a bar on the graph. See **Usage** for an example.   |
+| **`labels`**                 | _Array_        | `[]`                      | Array of strings, each one representing a label on the graph. See **Usage** for an example. |
+| **`stepInterval`**           | _Number_       | `1500`                    | Step transition time in milliseconds.                                                       |
+| **`order`**                  | _String_       | `"desc"`                  | Graph bars ordenation. Can be `"desc"` or `"asc"`. `asc`.                                   |
+| **`gap`**                    | _Number_       | `10`                      | Gap between graph bars.                                                                     |
+| **`transitionTopInterval`**  | _Number_       | `stepInterval / 2`        | Step transition time in and interval between steps when de the graph is playing.            |
+| **`barThickness`**           | _Number_       | `20`                      | Graph bar thickness.                                                                        |
+| **`barLabelWidth`**          | _Number_       | `100`                     | Width in pixels applied on all bar labels.                                                  |
+| **`timelineTrackThickness`** | _Number_       | `4`                       | Width in pixels applied on the timeline track.                                              |
+| **`timelineMarkerSize`**     | _Number_       | `14`                      | Width in pixels applied on the timeline markers.                                            |
+| **`timelineMarkerColor`**    | _String_       | `#cecece`                 | Background color applied on the timeline markers.                                           |
+| **`timelineTrackColor`**     | _String_       | `#cecece`                 | Background color applied on the timeline track.                                             |
+| **`timelineTrackFillColor`** | _String_       | `#0984e3`                 | Background color applied on the timeline track fill.                                        |
+| **`renderValue`**            | _Function_     | `(label:String) => label` | Callback function for label handling.                                                       |
+| **`onChange`**               | _Function_     | `(step:Number) => step`   | Function called when the current step changes.                                              |
 
 ## To Do
 
