@@ -90,7 +90,7 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 | **`stepInterval`**           | _Number_   | `1500`             | Step transition time in milliseconds.                                                       |
 | **`order`**                  | _String_   | `"desc"`           | Graph bars ordenation. Can be `"desc"` or `"asc"`.                                          |
 | **`gap`**                    | _Number_   | `10`               | Gap in pixels applied between graph bars.                                                   |
-| **`transitionTopInterval`**  | _Number_   | `stepInterval / 2` | Step transition time in milliseconds.                                                       |
+| **`transitionTopInterval`**  | _Number_   | `stepInterval/2`   | Step transition time in milliseconds.                                                       |
 | **`barThickness`**           | _Number_   | `20`               | Graph bar thickness in pixels.                                                              |
 | **`barLabelWidth`**          | _Number_   | `100`              | Width in pixels applied on all bar labels.                                                  |
 | **`timelineTrackThickness`** | _Number_   | `4`                | Width in pixels applied on the timeline track.                                              |
