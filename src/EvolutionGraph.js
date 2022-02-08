@@ -17,8 +17,8 @@ class EvolutionGraph {
       timelineMarkerColor,
       timelineTrackColor,
       timelineTrackFillColor,
-      renderValue,
       order,
+      renderValue,
       onChange,
     } = props;
 
@@ -27,9 +27,10 @@ class EvolutionGraph {
     this.data = data || [];
     this.labels = labels || [];
     this.stepInterval = stepInterval || 1500;
+    this.order = order || "desc";
+    this.gap = gap || 10;
     this.transitionTopInterval = transitionTopInterval || this.stepInterval / 2;
     this.barThickness = barThickness || 20;
-    this.gap = gap || 10;
     this.barLabelWidth = barLabelWidth || 100;
     this.timelineTrackThickness = timelineTrackThickness || 4;
     this.timelineMarkerSize = timelineMarkerSize || 14;
@@ -37,11 +38,12 @@ class EvolutionGraph {
     this.timelineTrackColor = timelineTrackColor || "rgb(206, 206, 206)";
     this.timelineTrackFillColor = timelineTrackFillColor || "rgb(9, 132, 227)";
     this.renderValue = renderValue;
-    this.order = order || "desc";
     this.onChange = onChange;
-    this.currentStep = 0;
-    this.interval = null;
+
     this.isPlaying = false;
+    this.interval = null;
+    this.currentStep = 0;
+
     this.graph = this.createGraph();
 
     this.prepare();
