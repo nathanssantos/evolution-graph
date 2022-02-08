@@ -123,7 +123,6 @@ class Graph extends Element {
 
       if (barDataWidth > higherBarDataWidth) {
         higherBarDataWidth = barDataWidth + 10;
-        console.log(higherBarDataWidth);
       }
     });
 
@@ -136,6 +135,7 @@ class Graph extends Element {
       "transition",
       `all ${this.stepInterval}ms linear`
     );
+    
     this.elements.timeline.update({
       graph: this,
       currentStep,

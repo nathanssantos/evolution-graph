@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/css/styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+    </style>
     <title>Evolution Graph</title>
     <style>
       body {
@@ -24,21 +27,25 @@
       }
 
       .actions button {
-        font-size: 20px;
-        line-height: 1;
         height: 40px;
         width: 40px;
         border-radius: 4px;
-        border: 1px solid rgb(206, 206, 206);
-        padding-bottom: 4px;
+        border: none;
         background: none;
-        color: rgb(206, 206, 206);
         cursor: pointer;
         transition: all 250ms ease-in-out;
       }
 
       .actions button:hover {
-        background: rgba(206, 206, 206, 0.5);
+        background: rgba(206, 206, 206, 0.2);
+      }
+
+      .evolution-graph {
+        font-family: Montserrat;
+      }
+
+      .evolution-graph__bar {
+        letter-spacing: 1.5px;
       }
 
       .evolution-graph__bar__track__fill {
@@ -46,22 +53,54 @@
       }
 
       .evolution-graph__title {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: bold;
+        letter-spacing: 3px;
+      }
+
+      .evolution-graph__timeline__track__marker__label {
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        margin-left: -1px;
       }
     </style>
   </head>
   <body>
     <main>
-      <div id="graph-example"></div>
+      <div id="evolution-graph-example"></div>
       <div class="actions">
-        <button id="bt-previous">←</button>
-        <button id="bt-play">&#x23F5;</button>
-        <button id="bt-next">→</button>
+        <button id="bt-previous">
+          <svg fill="white" viewBox="0 0 24 24">
+            <path
+              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+            ></path>
+          </svg>
+        </button>
+        <button id="bt-play">
+          <svg fill="white" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+        </button>
+        <button id="bt-next">
+          <svg fill="white" viewBox="0 0 24 24">
+            <path
+              d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+            ></path>
+          </svg>
+        </button>
       </div>
     </main>
     <script type="module">
       import EvolutionGraph from "./index.js";
+
+      const playIcon =
+        '<svg fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>';
+      const pauseIcon =
+        '<svg fill="white" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>';
+      const arrowForwardIcon =
+        '<svg fill="white" viewBox="0 0 24 24"><path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg>';
+      const arrowBackIcon =
+        '<svg fill="white" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>';
 
       const data = [
         {
@@ -70,7 +109,7 @@
           color: "#7F8B99",
           image:
             "https://raw.githubusercontent.com/abranhe/programming-languages-logos/30a0ecf99188be99a3c75a00efb5be61eca9c382/src/c/c.svg",
-          values: [0, 1, 3, 7, 14, 28, 32, 40, 42, 50, 60, 72],
+          values: [0, 1, 3, 7, 14, 28, 32, 40, 42, 50, 60, 64],
         },
         {
           label: "C++",
@@ -78,7 +117,7 @@
           color: "#1B598E",
           image:
             "https://raw.githubusercontent.com/abranhe/programming-languages-logos/30a0ecf99188be99a3c75a00efb5be61eca9c382/src/cpp/cpp.svg",
-          values: [0, 3, 12, 13, 14, 25, 33, 42, 42, 48, 64, 80],
+          values: [0, 3, 12, 13, 14, 25, 33, 42, 42, 48, 64, 72],
         },
         {
           label: "C#",
@@ -86,7 +125,7 @@
           color: "#9B4F96",
           image:
             "https://raw.githubusercontent.com/abranhe/programming-languages-logos/30a0ecf99188be99a3c75a00efb5be61eca9c382/src/csharp/csharp.svg",
-          values: [0, 2, 8, 9, 16, 20, 28, 50, 54, 56, 61, 98],
+          values: [0, 2, 8, 9, 16, 20, 28, 50, 54, 56, 61, 86],
         },
         {
           label: "JavaScript",
@@ -94,7 +133,7 @@
           color: "#F0DB4F",
           image:
             "https://raw.githubusercontent.com/abranhe/programming-languages-logos/30a0ecf99188be99a3c75a00efb5be61eca9c382/src/javascript/javascript.svg",
-          values: [0, 3, 9, 10, 22, 32, 40, 52, 64, 71, 80, 111],
+          values: [0, 3, 9, 10, 22, 32, 40, 52, 64, 71, 80, 101],
         },
         {
           label: "Go",
@@ -170,7 +209,7 @@
       ];
 
       const graph = new EvolutionGraph({
-        target: document.getElementById("graph-example"),
+        target: document.getElementById("evolution-graph-example"),
         data,
         labels,
         barThickness: 30,
@@ -179,27 +218,27 @@
           console.log("Evolution Graph currentStep", currentStep),
       });
 
-      const btPrevious = document.getElementById("bt-previous");
       const btPlay = document.getElementById("bt-play");
+      const btPrevious = document.getElementById("bt-previous");
       const btNext = document.getElementById("bt-next");
 
       btPrevious.addEventListener("click", (event) => {
-        btPlay.innerHTML = "\u23F5";
+        btPlay.innerHTML = playIcon;
         graph.previous({ stopEvolution: true });
       });
 
       btPlay.addEventListener("click", (event) => {
         if (graph.isPlaying) {
           graph.stop();
-          event.target.innerHTML = "\u23F5";
+          event.target.innerHTML = playIcon;
         } else {
-          event.target.innerHTML = "\u23F8";
+          event.target.innerHTML = pauseIcon;
           graph.start();
         }
       });
 
       btNext.addEventListener("click", (event) => {
-        btPlay.innerHTML = "\u23F5";
+        btPlay.innerHTML = playIcon;
         graph.next({ stopEvolution: true });
       });
     </script>

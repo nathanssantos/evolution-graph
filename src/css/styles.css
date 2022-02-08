@@ -1,5 +1,6 @@
 .evolution-graph {
-  font-family: "Roboto", Arial;
+  font-family: Arial;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -64,7 +65,7 @@
   margin-top: 24px;
   height: 14px;
   position: relative;
-  margin-bottom: 90px;
+  margin-bottom: 110px;
 }
 
 .evolution-graph__timeline__track {
@@ -79,7 +80,6 @@
 
 .evolution-graph__timeline__track__marker {
   border-radius: 50%;
-  transform: translateY(calc(-50% + 2px));
   transition: all 250ms ease-in-out;
   cursor: pointer;
   position: relative;
@@ -92,5 +92,4 @@
 .evolution-graph__timeline__track__marker__label {
   position: absolute;
   transform-origin: left;
-  font-size: 12px;
 }

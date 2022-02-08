@@ -24,6 +24,7 @@
 - Add showBarValue prop
 - Add showBarImage prop
 - Add onClickBar prop
+- Control z-index on bar position transition
 - Improve timeline behavior
 - Add graphOrientation prop
 - Documentation

@@ -53,6 +53,10 @@ class Timeline extends Element {
       marker.setStyle("width", `${this.markerSize}px`);
       marker.setStyle("height", `${this.markerSize}px`);
       marker.setStyle("background-color", this.markerColor);
+      marker.setStyle(
+        "transform",
+        `translateY(calc(-50% + ${this.trackThickness / 2}px)`
+      );
 
       const markerLabel = new Element({
         className: "evolution-graph__timeline__track__marker__label",

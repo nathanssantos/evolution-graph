@@ -29,7 +29,7 @@ class EvolutionGraph {
     this.stepInterval = stepInterval || 1500;
     this.transitionTopInterval = transitionTopInterval || this.stepInterval / 2;
     this.barThickness = barThickness || 20;
-    this.gap = gap || 20;
+    this.gap = gap || 10;
     this.barLabelWidth = barLabelWidth || 100;
     this.timelineTrackThickness = timelineTrackThickness || 4;
     this.timelineMarkerSize = timelineMarkerSize || 14;
