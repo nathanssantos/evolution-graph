@@ -51,15 +51,29 @@ const data = [
   },
 ];
 
-const labels = ["01/01/2021", "01/02/2021", "01/03/2021"];
+const labels = [
+  "01/01/2021",
+  "01/02/2021",
+  "01/03/2021",
+  "01/04/2021",
+  "01/05/2021",
+  "01/06/2021",
+  "01/07/2021",
+  "01/08/2021",
+  "01/09/2021",
+  "01/10/2021",
+  "01/11/2021",
+  "01/12/2021",
+];
 
+// data and labels must have the same length
 const graph = new EvolutionGraph({
-  target: document.getElementById("evolution-graph-example"),
   data,
   labels,
 });
 
-// data and labels must have the same length
+// pass a selector to graph.create function render the graph
+graph.create("#evolution-graph-example");
 ```
 
 Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) repository assets used on the demo.
@@ -99,4 +113,5 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 - Add onClickBar prop
 - Control z-index on change bar positions
 - Improve timeline behavior
+- Improve react compatibility
 - Add graphOrientation prop

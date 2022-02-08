@@ -157,7 +157,9 @@ class EvolutionGraph {
     }
   };
 
-  create = () => this.graph.body;
+  create = (selector) => {
+    document.querySelector(selector).append(this.graph.body);
+  };
 }
 
 export default EvolutionGraph;
