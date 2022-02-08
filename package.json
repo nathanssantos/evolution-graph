@@ -1,6 +1,6 @@
 {
   "name": "evolution-graph",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Vanilla JavaScript fully customizable, responsive and animated evolution graph.",
   "main": "index.js",
   "repository": "https://github.com/nathanssantos/evolution-graph",
@@ -8,8 +8,5 @@
     "name": "Nathan Silva Santos",
     "email": "nathansilvasantos@gmail.com"
   },
-  "license": "MIT",
-  "scripts": {
-    "start": "browser-sync start -f . --server"
-  }
+  "license": "MIT"
 }
