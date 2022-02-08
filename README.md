@@ -26,20 +26,12 @@ import "evolution-graph/src/css/styles.css";
 
 const data = [
   {
-    label: "JavaScript",
-    className: "javascript",
-    color: "#F0DB4F",
-    image:
-      "https://raw.githubusercontent.com/abranhe/programming-languages-logos/30a0ecf99188be99a3c75a00efb5be61eca9c382/src/javascript/javascript.svg",
-    values: [0, 7, 10, 10, 10, 12, 14, 20, 20, 24, 28, 32],
-  },
-  {
     label: "Python",
     className: "python",
     color: "#387EB8",
     image:
       "https://raw.githubusercontent.com/abranhe/programming-languages-logos/30a0ecf99188be99a3c75a00efb5be61eca9c382/src/python/python.svg",
-    values: [0, 1, 1, 2, 3, 3, 4, 7, 8, 11, 13, 15],
+    values: [0, 3, 4, 7, 8, 9, 9, 10, 12, 11, 13, 15],
   },
   {
     label: "Ruby",
@@ -47,7 +39,15 @@ const data = [
     color: "#E82609",
     image:
       "https://raw.githubusercontent.com/abranhe/programming-languages-logos/30a0ecf99188be99a3c75a00efb5be61eca9c382/src/ruby/ruby.svg",
-    values: [0, 2, 4, 5, 6, 8, 10, 11, 14, 17, 20, 21],
+    values: [0, 2, 4, 5, 6, 8, 10, 13, 14, 17, 20, 21],
+  },
+  {
+    label: "JavaScript",
+    className: "javascript",
+    color: "#F0DB4F",
+    image:
+      "https://raw.githubusercontent.com/abranhe/programming-languages-logos/30a0ecf99188be99a3c75a00efb5be61eca9c382/src/javascript/javascript.svg",
+    values: [0, 2, 3, 6, 7, 10, 14, 20, 20, 24, 28, 32],
   },
 ];
 

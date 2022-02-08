@@ -228,11 +228,11 @@
 
       btPlay.addEventListener("click", (event) => {
         if (graph.isPlaying) {
-          graph.stop();
+          graph.pause();
           event.target.innerHTML = playIcon;
         } else {
+          graph.play();
           event.target.innerHTML = pauseIcon;
-          graph.start();
         }
       });
 

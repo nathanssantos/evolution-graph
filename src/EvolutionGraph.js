@@ -68,7 +68,7 @@ class EvolutionGraph {
   };
 
   setCurrentStep = (step, stopEvolution) => {
-    if (stopEvolution) this.stop();
+    if (stopEvolution) this.pause();
 
     if (step < 0 || step > this.labels.length - 1) return;
 
@@ -87,7 +87,7 @@ class EvolutionGraph {
     this.setCurrentStep(this.currentStep + 1, stopEvolution);
   };
 
-  start = () => {
+  play = () => {
     if (this.cantGoForward) return;
 
     this.isPlaying = true;
@@ -100,7 +100,7 @@ class EvolutionGraph {
     }, this.stepInterval);
   };
 
-  stop = () => {
+  pause = () => {
     this.isPlaying = false;
     clearInterval(this.interval);
   };
