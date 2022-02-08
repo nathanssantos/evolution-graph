@@ -70,6 +70,8 @@ const labels = [
 const graph = new EvolutionGraph({
   data,
   labels,
+  renderValue: (value: String) => `${value}k`,
+  onChange: (step: Number) => console.log(step),
 });
 
 // pass a selector to graph.create function render the graph
@@ -96,8 +98,8 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 | **`timelineMarkerColor`**    | _String_   | `#cecece`          | Background color applied on the timeline markers.                                           |
 | **`timelineTrackColor`**     | _String_   | `#cecece`          | Background color applied on the timeline track.                                             |
 | **`timelineTrackFillColor`** | _String_   | `#0984e3`          | Background color applied on the timeline track fill.                                        |
-| **`renderValue`**            | _Function_ | `() => String`     | Callback function for label handling. `(label:String) => label`                             |
-| **`onChange`**               | _Function_ | `() => Number`     | Function called when the current step changes. `(step:String) => step`                      |
+| **`renderValue`**            | _Function_ | --                 | Callback function for label handling.                                                       |
+| **`onChange`**               | _Function_ | --                 | Function called when the current step changes.                                              |
 
 ## To Do
 
