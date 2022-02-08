@@ -97,7 +97,7 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 - Add showBarValue prop
 - Add showBarImage prop
 - Add onClickBar prop
-- Control z-index on bar position transition
+- Control z-index on change bar positions
 - Improve timeline behavior
 - Add graphOrientation prop
 - Improve documentation
