@@ -16,8 +16,6 @@ $ npm install evolution-graph
 
 # Example
 
-![](src/docs/evolution-graph.gif)
-
 ### [Customized graph demo](https://nathanssantos.github.io/evolution-graph)
 
 # Usage
