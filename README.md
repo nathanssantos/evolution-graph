@@ -22,8 +22,6 @@ $ yarn add evolution-graph
 
 ```js
 import EvolutionGraph from "evolution-graph";
-// or
-// const EvolutionGraph = require("evolution-graph");
 
 const data = [
   {
