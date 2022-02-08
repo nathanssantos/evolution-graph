@@ -11,7 +11,7 @@ $ npm install evolution-graph
 or
 
 ```shell
-$ npm install evolution-graph
+$ yarn add evolution-graph
 ```
 
 # Example
