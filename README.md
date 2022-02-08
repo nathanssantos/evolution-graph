@@ -76,7 +76,7 @@ const graph = new EvolutionGraph({
 graph.create("#evolution-graph-example");
 ```
 
-Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) repository assets used on the demo.
+Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) repository assets used on this project demo.
 
 # Props
 
