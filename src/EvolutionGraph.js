@@ -3,7 +3,6 @@ import Graph from "./components/Graph.js";
 class EvolutionGraph {
   constructor(props) {
     const {
-      target,
       className,
       data,
       labels,
@@ -22,7 +21,6 @@ class EvolutionGraph {
       onChange,
     } = props;
 
-    this.target = target || document.body;
     this.className = className || "";
     this.data = data || [];
     this.labels = labels || [];
