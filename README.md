@@ -101,21 +101,21 @@ graph.create("#evolution-graph-example");
 
 ## Callback props
 
-| Prop                            | Type       | Description                                                         |
-| :------------------------------ | :--------- | :------------------------------------------------------------------ |
-| `renderValue: (value) => value` | _Function_ | Can be used for label handling. See **Usage** for an example.       |
-| `onChange: (step) => step`      | _Function_ | Called when the current step changes. See **Usage** for an example. |
+| Prop                                       | Type       | Description                                                         |
+| :----------------------------------------- | :--------- | :------------------------------------------------------------------ |
+| `renderValue: (value:`_String_`) => value` | _Function_ | Can be used for label handling. See **Usage** for an example.       |
+| `onChange: (step:`_Number_`) => step`      | _Function_ | Called when the current step changes. See **Usage** for an example. |
 
 ## Actions
 
-| Prop                          | Type       | Description                                                                  |
-| :---------------------------- | :--------- | :--------------------------------------------------------------------------- |
-| `create(selector:String)`     | _Function_ | Create and append a graph as selector's child. See **Usage** for an example. |
-| `setCurrentStep(step:Number)` | _Function_ | Set the current evolution step by index.                                     |
-| `goToPreviousStep()`          | _Function_ | Go to previous evolution step.                                               |
-| `goToNextStep()`              | _Function_ | Go to next evolution step.                                                   |
-| `play()`                      | _Function_ | Play step by step .                                                          |
-| `pause()`                     | _Function_ | Pause the evolution if the graph is playing.                                 |
+| Prop                              | Type       | Description                                                                  |
+| :-------------------------------- | :--------- | :--------------------------------------------------------------------------- |
+| `create(selector:`_String_`)`     | _Function_ | Create and append a graph as selector's child. See **Usage** for an example. |
+| `setCurrentStep(step:`_Number_`)` | _Function_ | Set the current evolution step by index.                                     |
+| `goToPreviousStep()`              | _Function_ | Go to previous evolution step.                                               |
+| `goToNextStep()`                  | _Function_ | Go to next evolution step.                                                   |
+| `play()`                          | _Function_ | Play step by step .                                                          |
+| `pause()`                         | _Function_ | Pause the evolution if the graph is playing.                                 |
 
 ## To Do
 
