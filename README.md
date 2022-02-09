@@ -121,6 +121,7 @@ graph.create("#evolution-graph-example");
 
 - Add action buttons
 - Control z-index on change bar positions
+- Tests
 - Add autoPlay prop
 - Add showActionButtons prop
 - Add renderGraphTitle callback prop
