@@ -18,6 +18,8 @@ $ yarn add evolution-graph
 
 [Customized graph demo](https://nathanssantos.github.io/evolution-graph)
 
+Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) repository assets used on this project demo.
+
 ## Usage
 
 ```js
@@ -78,38 +80,42 @@ const graph = new EvolutionGraph({
 graph.create("#evolution-graph-example");
 ```
 
-Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) repository assets used on this project demo.
-
 ## Props
 
-| Prop                     | Type       | Default          | Description                                                                                 |
-| :----------------------- | :--------- | :--------------- | :------------------------------------------------------------------------------------------ |
-| `data`                   | _Array_    | `[]`             | Array of objects, each one representing a bar on the graph. See **Usage** for an example.   |
-| `labels`                 | _Array_    | `[]`             | Array of strings, each one representing a label on the graph. See **Usage** for an example. |
-| `className`              | _String_   | `""`             | Custom css class applied on the graph container.                                            |
-| `order`                  | _String_   | `"desc"`         | Graph bars ordenation. Can be `"desc"` or `"asc"`.                                          |
-| `stepInterval`           | _Number_   | `1500`           | Step transition time in milliseconds.                                                       |
-| `transitionTopInterval`  | _Number_   | `stepInterval/2` | Step transition time in milliseconds.                                                       |
-| `gap`                    | _Number_   | `10`             | Gap in pixels applied between graph bars.                                                   |
-| `barThickness`           | _Number_   | `20`             | Graph bar thickness in pixels.                                                              |
-| `barLabelWidth`          | _Number_   | `100`            | Width in pixels applied on all bar labels.                                                  |
-| `timelineTrackThickness` | _Number_   | `4`              | Width in pixels applied on the timeline track.                                              |
-| `timelineTrackColor`     | _String_   | `#cecece`        | Background color applied on the timeline track.                                             |
-| `timelineTrackFillColor` | _String_   | `#0984e3`        | Background color applied on the timeline track fill.                                        |
-| `timelineMarkerSize`     | _Number_   | `14`             | Width in pixels applied on the timeline markers.                                            |
-| `timelineMarkerColor`    | _String_   | `#cecece`        | Background color applied on the timeline markers.                                           |
-| `renderValue`            | _Function_ | --               | Callback function for label handling.                                                       |
-| `onChange`               | _Function_ | --               | Function called when the current step changes.                                              |
+| Prop                     | Type     | Default          | Description                                                                                 |
+| :----------------------- | :------- | :--------------- | :------------------------------------------------------------------------------------------ |
+| `data`                   | _Array_  | `[]`             | Array of objects, each one representing a bar on the graph. See **Usage** for an example.   |
+| `labels`                 | _Array_  | `[]`             | Array of strings, each one representing a label on the graph. See **Usage** for an example. |
+| `className`              | _String_ | `""`             | Custom css class applied on the graph container.                                            |
+| `order`                  | _String_ | `"desc"`         | Graph bars ordenation. Can be `"desc"` or `"asc"`.                                          |
+| `stepInterval`           | _Number_ | `1500`           | Step transition time in milliseconds.                                                       |
+| `transitionTopInterval`  | _Number_ | `stepInterval/2` | Step transition time in milliseconds.                                                       |
+| `gap`                    | _Number_ | `10`             | Gap in pixels applied between graph bars.                                                   |
+| `barThickness`           | _Number_ | `20`             | Graph bar thickness in pixels.                                                              |
+| `barLabelWidth`          | _Number_ | `100`            | Width in pixels applied on all bar labels.                                                  |
+| `timelineTrackThickness` | _Number_ | `4`              | Width in pixels applied on the timeline track.                                              |
+| `timelineTrackColor`     | _String_ | `#cecece`        | Background color applied on the timeline track.                                             |
+| `timelineTrackFillColor` | _String_ | `#0984e3`        | Background color applied on the timeline track fill.                                        |
+| `timelineMarkerSize`     | _Number_ | `14`             | Width in pixels applied on the timeline markers.                                            |
+| `timelineMarkerColor`    | _String_ | `#cecece`        | Background color applied on the timeline markers.                                           |
+
+## Callback props
+
+| Prop          | Type       | Return               | Description                                                         |
+| :------------ | :--------- | :------------------- | :------------------------------------------------------------------ |
+| `renderValue` | _Function_ | `value:Number`       | Can be used for label handling. See **Usage** for an example.       |
+| `onChange`    | _Function_ | `currentStep:Number` | Called when the current step changes. See **Usage** for an example. |
 
 ## Actions
 
-| Prop                          | Type       | Description                                  |
-| :---------------------------- | :--------- | :------------------------------------------- |
-| `setCurrentStep(step:Number)` | _Function_ | Set the current evolution step by index.     |
-| `goToPreviousStep()`          | _Function_ | Go to previous evolution step.               |
-| `goToNextStep()`              | _Function_ | Go to next evolution step.                   |
-| `play()`                      | _Function_ | Play step by step .                          |
-| `pause()`                     | _Function_ | Pause the evolution if the graph is playing. |
+| Prop                        | Type       | Payload            | Description                                                            |
+| :-------------------------- | :--------- | :----------------- | :--------------------------------------------------------------------- |
+| `create(selector)`          | _Function_ | `selector:String`  | Set the current evolution step by index. See **Usage** for an example. |
+| `setCurrentStep(stepIndex)` | _Function_ | `stepIndex:Number` | Set the current evolution step by index.                               |
+| `goToPreviousStep()`        | _Function_ | --                 | Go to previous evolution step.                                         |
+| `goToNextStep()`            | _Function_ | --                 | Go to next evolution step.                                             |
+| `play()`                    | _Function_ | --                 | Play step by step .                                                    |
+| `pause()`                   | _Function_ | --                 | Pause the evolution if the graph is playing.                           |
 
 ## To Do
 
