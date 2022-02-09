@@ -93,10 +93,10 @@ class EvolutionGraph {
 
     this.isPlaying = true;
 
-    this.next();
+    this.goToNextStep();
 
     this.interval = setInterval(() => {
-      this.next();
+      this.goToNextStep();
       if (this.cantGoForward) clearInterval(this.interval);
     }, this.stepInterval);
   };
