@@ -223,7 +223,7 @@
 
       btPrevious.addEventListener("click", (event) => {
         btPlay.innerHTML = playIcon;
-        graph.previous({ stopEvolution: true });
+        graph.goToPreviousStep({ stopEvolution: true });
       });
 
       btPlay.addEventListener("click", (event) => {
@@ -238,7 +238,7 @@
 
       btNext.addEventListener("click", (event) => {
         btPlay.innerHTML = playIcon;
-        graph.next({ stopEvolution: true });
+        graph.goToNextSteo({ stopEvolution: true });
       });
 
       graph.create("#evolution-graph-example");

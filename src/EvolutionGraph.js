@@ -80,11 +80,11 @@ class EvolutionGraph {
     this.graph.update({ currentStep: this.currentStep });
   };
 
-  previous = ({ stopEvolution } = {}) => {
+  goToPreviousStep = ({ stopEvolution } = {}) => {
     this.setCurrentStep(this.currentStep - 1, stopEvolution);
   };
 
-  next = ({ stopEvolution } = {}) => {
+  goToNextStep = ({ stopEvolution } = {}) => {
     this.setCurrentStep(this.currentStep + 1, stopEvolution);
   };
 

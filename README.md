@@ -101,9 +101,18 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 | **`renderValue`**            | _Function_ | --                 | Callback function for label handling.                                                       |
 | **`onChange`**               | _Function_ | --                 | Function called when the current step changes.                                              |
 
-## To Do
+# Actions
 
-- Improve documentation with EvolutionGraph class actions
+| Prop                              | Type       | Description                                  |
+| :-------------------------------- | :--------- | :------------------------------------------- |
+| **`setCurrentStep(step:Number)`** | _Function_ | Set the current evolution step by index.     |
+| **`goToPreviousStep()`**          | _Function_ | Go to previous evolution step.               |
+| **`goToNextStep()`**              | _Function_ | Go to next evolution step.                   |
+| **`play()`**                      | _Function_ | Play step by step .                           |
+| **`pause()`**                     | _Function_ | Pause the evolution if the graph is playing. |
+
+# To Do
+
 - Types
 - Add autoPlay prop
 - Add action buttons
@@ -118,3 +127,4 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 - Improve timeline behavior
 - Improve react compatibility
 - Add graphOrientation prop
+- Improve documentation
