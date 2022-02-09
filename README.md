@@ -72,8 +72,8 @@ const labels = [
 const graph = new EvolutionGraph({
   data,
   labels,
-  renderValue: (value: String) => `${value}k`,
-  onChange: (step: Number) => console.log(step),
+  renderValue: (value) => `${value}k`,
+  onChange: (step) => console.log(step),
 });
 
 // pass a selector to graph.create function render the graph
