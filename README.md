@@ -82,48 +82,48 @@ Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-l
 
 ## Props
 
-| Prop                         | Type       | Default          | Description                                                                                 |
-| :--------------------------- | :--------- | :--------------- | :------------------------------------------------------------------------------------------ |
-| **`data`**                   | _Array_    | `[]`             | Array of objects, each one representing a bar on the graph. See **Usage** for an example.   |
-| **`labels`**                 | _Array_    | `[]`             | Array of strings, each one representing a label on the graph. See **Usage** for an example. |
-| **`className`**              | _String_   | `""`             | Custom css class applied on the graph container.                                            |
-| **`order`**                  | _String_   | `"desc"`         | Graph bars ordenation. Can be `"desc"` or `"asc"`.                                          |
-| **`stepInterval`**           | _Number_   | `1500`           | Step transition time in milliseconds.                                                       |
-| **`transitionTopInterval`**  | _Number_   | `stepInterval/2` | Step transition time in milliseconds.                                                       |
-| **`gap`**                    | _Number_   | `10`             | Gap in pixels applied between graph bars.                                                   |
-| **`barThickness`**           | _Number_   | `20`             | Graph bar thickness in pixels.                                                              |
-| **`barLabelWidth`**          | _Number_   | `100`            | Width in pixels applied on all bar labels.                                                  |
-| **`timelineTrackThickness`** | _Number_   | `4`              | Width in pixels applied on the timeline track.                                              |
-| **`timelineTrackColor`**     | _String_   | `#cecece`        | Background color applied on the timeline track.                                             |
-| **`timelineTrackFillColor`** | _String_   | `#0984e3`        | Background color applied on the timeline track fill.                                        |
-| **`timelineMarkerSize`**     | _Number_   | `14`             | Width in pixels applied on the timeline markers.                                            |
-| **`timelineMarkerColor`**    | _String_   | `#cecece`        | Background color applied on the timeline markers.                                           |
-| **`renderValue`**            | _Function_ | --               | Callback function for label handling.                                                       |
-| **`onChange`**               | _Function_ | --               | Function called when the current step changes.                                              |
+| Prop                     | Type       | Default          | Description                                                                                 |
+| :----------------------- | :--------- | :--------------- | :------------------------------------------------------------------------------------------ |
+| `data`                   | _Array_    | `[]`             | Array of objects, each one representing a bar on the graph. See **Usage** for an example.   |
+| `labels`                 | _Array_    | `[]`             | Array of strings, each one representing a label on the graph. See **Usage** for an example. |
+| `className`              | _String_   | `""`             | Custom css class applied on the graph container.                                            |
+| `order`                  | _String_   | `"desc"`         | Graph bars ordenation. Can be `"desc"` or `"asc"`.                                          |
+| `stepInterval`           | _Number_   | `1500`           | Step transition time in milliseconds.                                                       |
+| `transitionTopInterval`  | _Number_   | `stepInterval/2` | Step transition time in milliseconds.                                                       |
+| `gap`                    | _Number_   | `10`             | Gap in pixels applied between graph bars.                                                   |
+| `barThickness`           | _Number_   | `20`             | Graph bar thickness in pixels.                                                              |
+| `barLabelWidth`          | _Number_   | `100`            | Width in pixels applied on all bar labels.                                                  |
+| `timelineTrackThickness` | _Number_   | `4`              | Width in pixels applied on the timeline track.                                              |
+| `timelineTrackColor`     | _String_   | `#cecece`        | Background color applied on the timeline track.                                             |
+| `timelineTrackFillColor` | _String_   | `#0984e3`        | Background color applied on the timeline track fill.                                        |
+| `timelineMarkerSize`     | _Number_   | `14`             | Width in pixels applied on the timeline markers.                                            |
+| `timelineMarkerColor`    | _String_   | `#cecece`        | Background color applied on the timeline markers.                                           |
+| `renderValue`            | _Function_ | --               | Callback function for label handling.                                                       |
+| `onChange`               | _Function_ | --               | Function called when the current step changes.                                              |
 
 ## Actions
 
-| Prop                              | Type       | Description                                  |
-| :-------------------------------- | :--------- | :------------------------------------------- |
-| **`setCurrentStep(step:Number)`** | _Function_ | Set the current evolution step by index.     |
-| **`goToPreviousStep()`**          | _Function_ | Go to previous evolution step.               |
-| **`goToNextStep()`**              | _Function_ | Go to next evolution step.                   |
-| **`play()`**                      | _Function_ | Play step by step .                          |
-| **`pause()`**                     | _Function_ | Pause the evolution if the graph is playing. |
+| Prop                          | Type       | Description                                  |
+| :---------------------------- | :--------- | :------------------------------------------- |
+| `setCurrentStep(step:Number)` | _Function_ | Set the current evolution step by index.     |
+| `goToPreviousStep()`          | _Function_ | Go to previous evolution step.               |
+| `goToNextStep()`              | _Function_ | Go to next evolution step.                   |
+| `play()`                      | _Function_ | Play step by step .                          |
+| `pause()`                     | _Function_ | Pause the evolution if the graph is playing. |
 
 ## To Do
 
-- Types
-- Add autoPlay prop
 - Add action buttons
+- Control z-index on change bar positions
+- Add autoPlay prop
 - Add showActionButtons prop
-- Add renderGraphTitle prop
-- Add renderBarLabel prop
+- Add renderGraphTitle callback prop
+- Add renderBarLabel callback prop
 - Add showBarLabel prop
 - Add showBarValue prop
 - Add showBarImage prop
 - Add onClickBar prop
-- Control z-index on change bar positions
+- Types
 - Improve timeline behavior
 - Improve react compatibility
 - Add graphOrientation prop
