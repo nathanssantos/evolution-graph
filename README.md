@@ -1,6 +1,6 @@
 # evolution-graph
 
-_Animated, responsive and fully customizable evolution graph built with Vanilla JavaScript._
+_Animated, responsive, and highly customizable evolution graph built with Vanilla JavaScript to create flexible data visualizations._
 
 ## Install
 
@@ -18,7 +18,7 @@ $ yarn add evolution-graph
 
 [Customized graph demo](https://nathanssantos.github.io/evolution-graph)
 
-Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) repository assets used on this project demo.
+Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) repository wich was very useful on this project demo.
 
 ## Usage
 
@@ -72,15 +72,27 @@ const labels = [
 const graph = new EvolutionGraph({
   data,
   labels,
-  renderValue: (value) => `${value}k`,
-  onChange: (step) => console.log(step),
+  className: "custom-evolution-graph",
+  order: "desc",
+  stepInterval: 1500,
+  transitionTopInterval: 750,
+  gap: 10,
+  barThickness: 20,
+  barLabelWidth: 100,
+  timelineTrackThickness: 4,
+  timelineTrackColor: "rgb(206, 206, 206)",
+  timelineTrackFillColor: "rgb(9, 132, 227)",
+  timelineMarkerSize: 14,
+  timelineMarkerColor: "rgb(206, 206, 206)",
+  renderValue: (value) => value,
+  onChange: (step) => step,
 });
 
-// pass a selector to graph.create function render the graph
+// draw the graph by passing the selector of a html element to the method create()
 graph.create("#evolution-graph-example");
 ```
 
-## Props
+## Options
 
 | Prop                     | Type     | Default          | Description                                                                                 |
 | :----------------------- | :------- | :--------------- | :------------------------------------------------------------------------------------------ |
@@ -99,14 +111,14 @@ graph.create("#evolution-graph-example");
 | `timelineMarkerSize`     | _Number_ | `14`             | Width in pixels applied on the timeline markers.                                            |
 | `timelineMarkerColor`    | _String_ | `#cecece`        | Background color applied on the timeline markers.                                           |
 
-## Callback props
+## Callback Functions
 
 | Prop                                   | Description                                                         |
 | :------------------------------------- | :------------------------------------------------------------------ |
 | `renderValue: (value:Number) => value` | Can be used for label handling. See **Usage** for an example.       |
 | `onChange: (step:Number) => step`      | Called when the current step changes. See **Usage** for an example. |
 
-## Actions
+## API Methods
 
 | Prop                          | Description                                                                  |
 | :---------------------------- | :--------------------------------------------------------------------------- |
@@ -120,8 +132,6 @@ graph.create("#evolution-graph-example");
 ## To Do
 
 - Add action buttons
-- Control z-index on change bar positions
-- Tests
 - Add autoPlay prop
 - Add showActionButtons prop
 - Add renderGraphTitle callback prop
@@ -130,8 +140,7 @@ graph.create("#evolution-graph-example");
 - Add showBarValue prop
 - Add showBarImage prop
 - Add onClickBar prop
-- Types
 - Improve timeline behavior
 - Improve react compatibility
-- Add graphOrientation prop
+- Types
 - Improve documentation
