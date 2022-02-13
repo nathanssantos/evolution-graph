@@ -2,6 +2,7 @@
   "name": "evolution-graph",
   "version": "1.0.19",
   "description": "Animated, responsive, and highly customizable evolution graph built with Vanilla JavaScript to create flexible data visualizations.",
+  "homepage": "https://www.npmjs.com/package/evolution-graph",
   "author": {
     "name": "Nathan Silva Santos",
     "email": "nathansilvasantos@gmail.com"
