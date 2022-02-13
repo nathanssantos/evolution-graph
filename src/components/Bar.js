@@ -10,6 +10,7 @@ class Bar extends Element {
       thickness,
       label,
       labelWidth,
+      dataGap,
       color,
       image,
       graph,
@@ -21,6 +22,7 @@ class Bar extends Element {
     this.thickness = thickness;
     this.label = label;
     this.labelWidth = labelWidth;
+    this.dataGap = dataGap;
     this.color = color;
     this.image = image;
     this.renderValue = renderValue;
@@ -54,12 +56,15 @@ class Bar extends Element {
     });
     trackFill.setStyle("height", `${this.thickness}px`);
     trackFill.setStyle("background-color", this.color);
-    trackFill.setStyle("border", `1px solid ${this.color}`);
     trackFill.setStyle("transition", `all ${graph.stepInterval}ms linear`);
 
     const data = new Element({
       className: "evolution-graph__bar__data",
     });
+    data.setStyle(
+      "transform",
+      `translate(calc(100% + ${this.dataGap}px), -50%)`
+    );
 
     const imageWrapper = new Element({
       className: "evolution-graph__bar__image-wrapper",

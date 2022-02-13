@@ -33,7 +33,7 @@ const data = [
     color: "#387EB8",
     image:
       "https://raw.githubusercontent.com/abranhe/programming-languages-logos/30a0ecf99188be99a3c75a00efb5be61eca9c382/src/python/python.svg",
-    values: [0, 3, 4, 7, 8, 9, 9, 10, 12, 11, 13, 15],
+    values: [0, 3, 4, 7, 8, 9, 9, 10, 11, 12, 13, 15],
   },
   {
     label: "Ruby",

@@ -1,6 +1,6 @@
 import Graph from "./components/Graph.js";
 
-class EvolutionGraph {
+class Controller {
   constructor(props) {
     const {
       data,
@@ -12,6 +12,7 @@ class EvolutionGraph {
       gap,
       barThickness,
       barLabelWidth,
+      barDataGap,
       timelineTrackThickness,
       timelineTrackColor,
       timelineTrackFillColor,
@@ -30,6 +31,7 @@ class EvolutionGraph {
     this.gap = gap || 10;
     this.barThickness = barThickness || 20;
     this.barLabelWidth = barLabelWidth || 100;
+    this.barDataGap = barDataGap || 4;
     this.timelineTrackThickness = timelineTrackThickness || 4;
     this.timelineTrackColor = timelineTrackColor || "rgb(206, 206, 206)";
     this.timelineTrackFillColor = timelineTrackFillColor || "rgb(9, 132, 227)";
@@ -89,7 +91,7 @@ class EvolutionGraph {
   };
 
   play = () => {
-    if (this.cantGoForward) return;
+    if (this.cantGoForward || this.interval) return;
 
     this.isPlaying = true;
 
@@ -104,6 +106,7 @@ class EvolutionGraph {
   pause = () => {
     this.isPlaying = false;
     clearInterval(this.interval);
+    this.interval = null;
   };
 
   prepare = () => {
@@ -121,6 +124,7 @@ class EvolutionGraph {
         gap,
         barThickness,
         barLabelWidth,
+        barDataGap,
         timelineTrackThickness,
         timelineTrackColor,
         timelineTrackFillColor,
@@ -142,6 +146,7 @@ class EvolutionGraph {
         gap,
         barThickness,
         barLabelWidth,
+        barDataGap,
         timelineTrackThickness,
         timelineTrackColor,
         timelineTrackFillColor,
@@ -166,4 +171,4 @@ class EvolutionGraph {
   };
 }
 
-export default EvolutionGraph;
+export default Controller;

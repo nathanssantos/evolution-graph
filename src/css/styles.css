@@ -46,7 +46,6 @@
   display: flex;
   align-items: center;
   top: 50%;
-  transform: translate(calc(100% + 6px), -50%);
   right: 0;
 }
 

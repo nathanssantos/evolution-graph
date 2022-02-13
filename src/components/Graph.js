@@ -16,6 +16,7 @@ class Graph extends Element {
       gap,
       barThickness,
       barLabelWidth,
+      barDataGap,
       timelineTrackThickness,
       timelineTrackColor,
       timelineTrackFillColor,
@@ -34,6 +35,7 @@ class Graph extends Element {
     this.gap = gap;
     this.barThickness = barThickness;
     this.barLabelWidth = barLabelWidth;
+    this.barDataGap = barDataGap;
     this.timelineTrackThickness = timelineTrackThickness;
     this.timelineTrackColor = timelineTrackColor;
     this.timelineTrackFillColor = timelineTrackFillColor;
@@ -66,6 +68,7 @@ class Graph extends Element {
             bar?.className?.length ? ` ${bar.className}` : ""
           }`,
           labelWidth: this.barLabelWidth,
+          dataGap: this.barDataGap,
           graph: this,
           renderValue: this.renderValue,
         })
@@ -120,18 +123,18 @@ class Graph extends Element {
       });
 
       if (barDataWidth > higherBarDataWidth) {
-        higherBarDataWidth = barDataWidth + 10;
+        higherBarDataWidth = barDataWidth;
       }
     });
 
     this.elements.barsContainer.setStyle(
-      "margin-right",
-      `${Math.ceil(higherBarDataWidth)}px`
+      "transition",
+      `all ${this.stepInterval}ms linear`
     );
 
     this.elements.barsContainer.setStyle(
-      "transition",
-      `all ${this.stepInterval}ms linear`
+      "margin-right",
+      `${Math.ceil(higherBarDataWidth) + this.barDataGap}px`
     );
 
     this.elements.timeline.update({
