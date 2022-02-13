@@ -1,12 +1,18 @@
 {
   "name": "evolution-graph",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "Animated, responsive, and highly customizable evolution graph built with Vanilla JavaScript to create flexible data visualizations.",
-  "main": "index.js",
-  "repository": "https://github.com/nathanssantos/evolution-graph",
   "author": {
     "name": "Nathan Silva Santos",
     "email": "nathansilvasantos@gmail.com"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanssantos/evolution-graph.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nathanssantos/evolution-graph/issues"
   },
   "keywords": [
     "graph",
