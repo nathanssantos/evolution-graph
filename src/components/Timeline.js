@@ -37,6 +37,7 @@ class Timeline extends Element {
     });
     track.setStyle("height", `${this.trackThickness}px`);
     track.setStyle("background-color", this.trackColor);
+    track.setStyle("border-radius", `${this.trackThickness / 2}px`);
 
     const trackFill = new Element({
       className: "evolution-graph__timeline__track__fill",
