@@ -18,7 +18,7 @@ $ yarn add evolution-graph
 
 [Customized graph demo](https://nathanssantos.github.io/evolution-graph)
 
-Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) wich where very useful on this project demo.
+Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) repository wich was very useful on this project demo.
 
 ## Usage
 
