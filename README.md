@@ -257,7 +257,7 @@ export default App;
 | `setCurrentStep(step:Number)` | Set the current evolution step by index.       |
 | `goToPreviousStep()`          | Go to previous evolution step.                 |
 | `goToNextStep()`              | Go to next evolution step.                     |
-| `play()`                      | Play step by step .                            |
+| `play()`                      | Play step by step.                            |
 | `pause()`                     | Pause the evolution if the graph is playing.   |
 
 ## To Do
