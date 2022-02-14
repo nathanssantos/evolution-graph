@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Controller from "../../Controller";
+import Controller from "./Controller";
 
 const EvolutionGraph = (props) => {
   const { getController } = props;
