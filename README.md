@@ -220,47 +220,45 @@ export default App;
 
 ## Options
 
-| Prop                     | Type      | Default          | Description                                                     |
-| :----------------------- | :-------- | :--------------- | :-------------------------------------------------------------- |
-| `data`                   | _Array_   | `[]`             | Array of objects, each one representing a bar on the graph.\*   |
-| `labels`                 | _Array_   | `[]`             | Array of strings, each one representing a label on the graph.\* |
-| `className`              | _String_  | `""`             | Custom css class applied on the graph container.                |
-| `order`                  | _String_  | `"desc"`         | Graph bars ordenation. Can be `"desc"` or `"asc"`.              |
-| `stepInterval`           | _Number_  | `1500`           | Step transition time in milliseconds.                           |
-| `transitionTopInterval`  | _Number_  | `stepInterval/2` | Step transition time in milliseconds.                           |
-| `gap`                    | _Number_  | `10`             | Gap in pixels applied between graph bars.                       |
-| `barThickness`           | _Number_  | `20`             | Graph bar thickness in pixels.                                  |
-| `barLabelWidth`          | _Number_  | `100`            | Width in pixels applied on all bar labels.                      |
-| `barDataGap`             | _Number_  | `4`              | Gap in pixels applied between bar and bar data.                 |
-| `timelineTrackThickness` | _Number_  | `4`              | Width in pixels applied on the timeline track.                  |
-| `timelineTrackColor`     | _String_  | `#cecece`        | Background color applied on the timeline track.                 |
-| `timelineTrackFillColor` | _String_  | `#0984e3`        | Background color applied on the timeline track fill.            |
-| `timelineMarkerSize`     | _Number_  | `14`             | Width in pixels applied on the timeline markers.                |
-| `timelineMarkerColor`    | _String_  | `#cecece`        | Background color applied on the timeline markers.               |
-| `showActionButtons`      | _Boolean_ | `true`           | Set the action buttons visibility.                              |
-| `autoPlay`               | _Boolean_ | `false`          | Play on mount.                                                  |
+| Prop                     | Type      | Default          | Description                                                   |
+| :----------------------- | :-------- | :--------------- | :------------------------------------------------------------ |
+| `data`                   | _Array_   | `[]`             | Array of objects, each one representing a bar on the graph.   |
+| `labels`                 | _Array_   | `[]`             | Array of strings, each one representing a label on the graph. |
+| `className`              | _String_  | `""`             | Custom css class applied on the graph container.              |
+| `order`                  | _String_  | `"desc"`         | Graph bars ordenation. Can be `"desc"` or `"asc"`.            |
+| `stepInterval`           | _Number_  | `1500`           | Step transition time in milliseconds.                         |
+| `transitionTopInterval`  | _Number_  | `stepInterval/2` | Step transition time in milliseconds.                         |
+| `gap`                    | _Number_  | `10`             | Gap in pixels applied between graph bars.                     |
+| `barThickness`           | _Number_  | `20`             | Graph bar thickness in pixels.                                |
+| `barLabelWidth`          | _Number_  | `100`            | Width in pixels applied on all bar labels.                    |
+| `barDataGap`             | _Number_  | `4`              | Gap in pixels applied between bar and bar data.               |
+| `timelineTrackThickness` | _Number_  | `4`              | Width in pixels applied on the timeline track.                |
+| `timelineTrackColor`     | _String_  | `#cecece`        | Background color applied on the timeline track.               |
+| `timelineTrackFillColor` | _String_  | `#0984e3`        | Background color applied on the timeline track fill.          |
+| `timelineMarkerSize`     | _Number_  | `14`             | Width in pixels applied on the timeline markers.              |
+| `timelineMarkerColor`    | _String_  | `#cecece`        | Background color applied on the timeline markers.             |
+| `showActionButtons`      | _Boolean_ | `true`           | Set the action buttons visibility.                            |
+| `autoPlay`               | _Boolean_ | `false`          | Play on mount.                                                |
 
 ## Callback Functions
 
-| Prop                                                   | Description                                             |
-| :----------------------------------------------------- | :------------------------------------------------------ |
-| `renderGraphTitle: (title:String) => title`            | Graph title handling.\*                                 |
-| `renderBarValue: (value:Number) => value`              | Bar value handling.\*                                   |
-| `onChange: (step:Number) => step`                      | Called when the current step changes.\*                 |
-| `getController: (controller:Controller) => controller` | Returns the graph controller instance. **React only**\* |
+| Prop                                                   | Description                                           |
+| :----------------------------------------------------- | :---------------------------------------------------- |
+| `renderGraphTitle: (title:String) => title`            | Graph title handling.                                 |
+| `renderBarValue: (value:Number) => value`              | Bar value handling.                                   |
+| `onChange: (step:Number) => step`                      | Called when the current step changes.                 |
+| `getController: (controller:Controller) => controller` | Returns the graph controller instance. **React only** |
 
 ## API Methods
 
-| Prop                          | Description                                      |
-| :---------------------------- | :----------------------------------------------- |
-| `render(selector:String)`     | Create and append a graph as selector's child.\* |
-| `setCurrentStep(step:Number)` | Set the current evolution step by index.         |
-| `goToPreviousStep()`          | Go to previous evolution step.                   |
-| `goToNextStep()`              | Go to next evolution step.                       |
-| `play()`                      | Play step by step .                              |
-| `pause()`                     | Pause the evolution if the graph is playing.     |
-
-### \*See **Usage** for examples.
+| Prop                          | Description                                    |
+| :---------------------------- | :--------------------------------------------- |
+| `render(selector:String)`     | Create and append a graph as selector's child. |
+| `setCurrentStep(step:Number)` | Set the current evolution step by index.       |
+| `goToPreviousStep()`          | Go to previous evolution step.                 |
+| `goToNextStep()`              | Go to next evolution step.                     |
+| `play()`                      | Play step by step .                            |
+| `pause()`                     | Pause the evolution if the graph is playing.   |
 
 ## To Do
 
