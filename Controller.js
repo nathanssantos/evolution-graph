@@ -1,4 +1,4 @@
-import Graph from "./components/Graph.js";
+import Graph from "./src/components/Graph.js";
 
 class Controller {
   constructor(props) {
@@ -18,7 +18,10 @@ class Controller {
       timelineTrackFillColor,
       timelineMarkerSize,
       timelineMarkerColor,
-      renderValue,
+      showActionButtons,
+      autoPlay,
+      renderBarValue,
+      renderGraphTitle,
       onChange,
     } = props;
 
@@ -37,7 +40,10 @@ class Controller {
     this.timelineTrackFillColor = timelineTrackFillColor || "rgb(9, 132, 227)";
     this.timelineMarkerSize = timelineMarkerSize || 14;
     this.timelineMarkerColor = timelineMarkerColor || "rgb(206, 206, 206)";
-    this.renderValue = renderValue;
+    this.showActionButtons = showActionButtons === false ? false : true;
+    this.autoPlay = autoPlay;
+    this.renderBarValue = renderBarValue;
+    this.renderGraphTitle = renderGraphTitle;
     this.onChange = onChange;
 
     this.mounted = false;
@@ -48,6 +54,10 @@ class Controller {
     this.graph = this.build();
 
     this.prepare();
+
+    setTimeout(() => {
+      if (this.autoPlay) this.play();
+    }, this.stepInterval);
   }
 
   get cantGoBack() {
@@ -73,13 +83,23 @@ class Controller {
   setCurrentStep = (step, stopEvolution) => {
     if (stopEvolution) this.pause();
 
-    if (step < 0 || step > this.labels.length - 1) return;
+    if (step < 0 || step > this.labels.length - 1) {
+      this.pause();
+      this.graph.update({
+        currentStep: this.currentStep,
+        isPlaying: this.isPlaying,
+      });
+      return;
+    }
 
     if (this.onChange) this.onChange(step);
 
     this.currentStep = step;
 
-    this.graph.update({ currentStep: this.currentStep });
+    this.graph.update({
+      currentStep: this.currentStep,
+      isPlaying: this.isPlaying,
+    });
   };
 
   goToPreviousStep = ({ stopEvolution } = {}) => {
@@ -95,22 +115,40 @@ class Controller {
 
     this.isPlaying = true;
 
+    this.graph.update({
+      currentStep: this.currentStep,
+      isPlaying: this.isPlaying,
+    });
+
     this.goToNextStep();
 
     this.interval = setInterval(() => {
       this.goToNextStep();
-      if (this.cantGoForward) clearInterval(this.interval);
+
+      if (this.cantGoForward) {
+        this.pause();
+        clearInterval(this.interval);
+      }
     }, this.stepInterval);
   };
 
   pause = () => {
     this.isPlaying = false;
+
+    this.graph.update({
+      currentStep: this.currentStep,
+      isPlaying: this.isPlaying,
+    });
+
     clearInterval(this.interval);
     this.interval = null;
   };
 
   prepare = () => {
-    this.graph.update({ currentStep: this.currentStep });
+    this.graph.update({
+      currentStep: this.currentStep,
+      isPlaying: this.isPlaying,
+    });
   };
 
   build = () => {
@@ -130,8 +168,16 @@ class Controller {
         timelineTrackFillColor,
         timelineMarkerSize,
         timelineMarkerColor,
-        renderValue,
+        showActionButtons,
+        autoPlay,
+        renderBarValue,
+        renderGraphTitle,
+        isPlaying,
         setCurrentStep,
+        goToPreviousStep,
+        goToNextStep,
+        play,
+        pause,
       } = this;
 
       const graph = new Graph({
@@ -152,9 +198,16 @@ class Controller {
         timelineTrackFillColor,
         timelineMarkerSize,
         timelineMarkerColor,
-        renderValue,
-        higherValue: this.getHigherValue(),
+        showActionButtons,
+        renderBarValue,
+        renderTitle: renderGraphTitle,
+        isPlaying,
         setCurrentStep,
+        goToPreviousStep,
+        goToNextStep,
+        play,
+        pause,
+        higherValue: this.getHigherValue(),
       });
 
       return graph;

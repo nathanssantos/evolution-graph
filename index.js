@@ -1,6 +1,3 @@
-import Controller from "./src/Controller.js";
-import EvolutionGraph from "./src/components/react/EvolutionGraph.jsx";
+import EvolutionGraph from "./EvolutionGraph.jsx";
 
-export default Controller;
-
-export { EvolutionGraph };
+export default EvolutionGraph;

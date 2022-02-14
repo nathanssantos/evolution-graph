@@ -3,6 +3,15 @@ import Bar from "./Bar.js";
 import ordernate from "../utils/ordenate.js";
 import Timeline from "./Timeline.js";
 
+const previousIcon =
+  '<svg fill="black" viewBox="0 0 24 24" width="24" height="24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>';
+const playIcon =
+  '<svg fill="black" viewBox="0 0 24 24"  width="24" height="24"><path d="M8 5v14l11-7z"></path></svg>';
+const pauseIcon =
+  '<svg fill="black" viewBox="0 0 24 24"  width="24" height="24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>';
+const nextIcon =
+  '<svg fill="black" viewBox="0 0 24 24"  width="24" height="24"><path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg>';
+
 class Graph extends Element {
   constructor(props) {
     super(props);
@@ -22,8 +31,15 @@ class Graph extends Element {
       timelineTrackFillColor,
       timelineMarkerSize,
       timelineMarkerColor,
-      renderValue,
+      showActionButtons,
+      renderBarValue,
+      renderTitle,
+      isPlaying,
       setCurrentStep,
+      goToPreviousStep,
+      goToNextStep,
+      play,
+      pause,
       higherValue,
     } = props;
 
@@ -41,8 +57,15 @@ class Graph extends Element {
     this.timelineTrackFillColor = timelineTrackFillColor;
     this.timelineMarkerColor = timelineMarkerColor;
     this.timelineMarkerSize = timelineMarkerSize;
-    this.renderValue = renderValue;
+    this.showActionButtons = showActionButtons;
+    this.renderBarValue = renderBarValue;
+    this.renderTitle = renderTitle;
+    this.isPlaying = isPlaying;
     this.setCurrentStep = setCurrentStep;
+    this.goToPreviousStep = goToPreviousStep;
+    this.goToNextStep = goToNextStep;
+    this.play = play;
+    this.pause = pause;
     this.higherValue = higherValue;
 
     this.prepare();
@@ -70,7 +93,7 @@ class Graph extends Element {
           labelWidth: this.barLabelWidth,
           dataGap: this.barDataGap,
           graph: this,
-          renderValue: this.renderValue,
+          renderValue: this.renderBarValue,
         })
     );
 
@@ -85,21 +108,64 @@ class Graph extends Element {
       setCurrentStep: this.setCurrentStep,
     });
 
+    const actions = new Element({
+      className: "evolution-graph__actions",
+    });
+
+    const btPrevious = new Element({
+      className: "evolution-graph__actions__bt bt-previous",
+      type: "button",
+    });
+    btPrevious.body.innerHTML = previousIcon;
+    btPrevious.body.addEventListener("click", () =>
+      this.goToPreviousStep({ stopEvolution: true })
+    );
+
+    const btPlayPause = new Element({
+      className: "evolution-graph__actions__bt bt-play-pause",
+      type: "button",
+    });
+    btPlayPause.body.innerHTML = playIcon;
+    btPlayPause.body.addEventListener("click", () => {
+      this.isPlaying ? this.pause() : this.play();
+    });
+
+    const btNext = new Element({
+      className: "evolution-graph__actions__bt bt-next",
+      type: "button",
+    });
+    btNext.body.innerHTML = nextIcon;
+    btNext.body.addEventListener("click", () =>
+      this.goToNextStep({ stopEvolution: true })
+    );
+
     this.elements = {
       title,
       barsContainer,
       bars,
       timeline,
+      actions,
+      btPrevious,
+      btPlayPause,
+      btNext,
     };
 
     bars.forEach((bar) => barsContainer.body.append(bar.body));
+    actions.body.append(btPrevious.body);
+    actions.body.append(btPlayPause.body);
+    actions.body.append(btNext.body);
     this.body.append(title.body);
     this.body.append(barsContainer.body);
     this.body.append(timeline.body);
+    if (this.showActionButtons) this.body.append(actions.body);
   };
 
-  update = ({ currentStep }) => {
-    this.elements.title.body.innerHTML = this.labels[currentStep];
+  update = ({ currentStep, isPlaying }) => {
+    this.elements.title.body.innerHTML = this.renderTitle
+      ? this.renderTitle(this.labels[currentStep])
+      : this.labels[currentStep];
+
+    this.isPlaying = isPlaying;
 
     const sortedData = [...this.data].sort((a, b) =>
       ordernate(a.values[currentStep], b.values[currentStep], this.order)
@@ -143,6 +209,8 @@ class Graph extends Element {
       graph: this,
       currentStep,
     });
+
+    this.elements.btPlayPause.body.innerHTML = isPlaying ? pauseIcon : playIcon;
   };
 }
 

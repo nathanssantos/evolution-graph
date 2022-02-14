@@ -79,16 +79,26 @@
 
 .evolution-graph__timeline__track__marker {
   border-radius: 50%;
-  transition: all 250ms ease-in-out;
   cursor: pointer;
   position: relative;
-}
-
-.evolution-graph__timeline__track__marker:hover {
-  background-color: #aaa !important;
 }
 
 .evolution-graph__timeline__track__marker__label {
   position: absolute;
   transform-origin: left;
+}
+
+.evolution-graph__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.evolution-graph__actions__bt {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
