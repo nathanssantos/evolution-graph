@@ -14,7 +14,7 @@ const EvolutionGraph = (props) => {
       getController(graphController);
     }
 
-    graphController.create(".evolution-graph-component");
+    graphController.render(".evolution-graph-component");
 
     setMounted(true);
   }, []);

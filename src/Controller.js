@@ -163,7 +163,7 @@ class Controller {
     }
   };
 
-  create = (selector) => {
+  render = (selector) => {
     if (!this.mounted) {
       document.querySelector(selector).append(this.graph.body);
       this.mounted = true;

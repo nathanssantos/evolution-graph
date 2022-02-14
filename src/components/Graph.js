@@ -108,10 +108,6 @@ class Graph extends Element {
     let higherBarDataWidth = 0;
 
     this.elements.bars.forEach((bar, index) => {
-      const barDataWidth = window
-        .getComputedStyle(bar.elements.data.body)
-        .width.replace("px", "");
-
       const foundBar = sortedData.find(
         ({ label }) => label === this.data[index]?.label
       );
@@ -121,6 +117,12 @@ class Graph extends Element {
         newValue: this.data[index].values[currentStep],
         position: sortedData.indexOf(foundBar),
       });
+    });
+
+    this.elements.bars.forEach((bar) => {
+      const barDataWidth = window
+        .getComputedStyle(bar.elements.data.body)
+        .width.replace("px", "");
 
       if (barDataWidth > higherBarDataWidth) {
         higherBarDataWidth = barDataWidth;
