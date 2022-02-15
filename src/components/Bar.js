@@ -33,7 +33,7 @@ class Bar extends Element {
   prepare = ({ graph }) => {
     this.setStyle(
       "transition",
-      `all ${graph.stepInterval}ms linear, top ${graph.transitionTopInterval}ms linear`
+      `all ${graph.stepInterval}ms linear, top ${graph.barTransitionTopInterval}ms linear`
     );
 
     const label = new Element({

@@ -7,9 +7,9 @@ class Controller {
       labels,
       className,
       order,
-      stepInterval,
-      transitionTopInterval,
       gap,
+      stepInterval,
+      barTransitionTopInterval,
       barThickness,
       barLabelWidth,
       barDataGap,
@@ -29,9 +29,10 @@ class Controller {
     this.labels = labels || [];
     this.className = className || "";
     this.order = order || "desc";
-    this.stepInterval = stepInterval || 1500;
-    this.transitionTopInterval = transitionTopInterval || this.stepInterval / 2;
     this.gap = gap || 10;
+    this.stepInterval = stepInterval || 1500;
+    this.barTransitionTopInterval =
+      barTransitionTopInterval || this.stepInterval / 2;
     this.barThickness = barThickness || 20;
     this.barLabelWidth = barLabelWidth || 100;
     this.barDataGap = barDataGap || 4;
@@ -158,8 +159,8 @@ class Controller {
         labels,
         order,
         stepInterval,
-        transitionTopInterval,
         gap,
+        barTransitionTopInterval,
         barThickness,
         barLabelWidth,
         barDataGap,
@@ -169,7 +170,6 @@ class Controller {
         timelineMarkerSize,
         timelineMarkerColor,
         showActionButtons,
-        autoPlay,
         renderBarValue,
         renderGraphTitle,
         isPlaying,
@@ -188,7 +188,7 @@ class Controller {
         }`,
         order,
         stepInterval,
-        transitionTopInterval,
+        barTransitionTopInterval,
         gap,
         barThickness,
         barLabelWidth,

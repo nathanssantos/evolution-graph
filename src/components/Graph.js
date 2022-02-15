@@ -21,7 +21,7 @@ class Graph extends Element {
       labels,
       order,
       stepInterval,
-      transitionTopInterval,
+      barTransitionTopInterval,
       gap,
       barThickness,
       barLabelWidth,
@@ -47,7 +47,7 @@ class Graph extends Element {
     this.labels = labels;
     this.order = order;
     this.stepInterval = stepInterval;
-    this.transitionTopInterval = transitionTopInterval;
+    this.barTransitionTopInterval = barTransitionTopInterval;
     this.gap = gap;
     this.barThickness = barThickness;
     this.barLabelWidth = barLabelWidth;
