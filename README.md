@@ -236,15 +236,11 @@ export default App;
 
 Array of objects, each one representing a bar on the graph.
 
----
-
 ### **`labels`**
 
 **type:** _Array_
 
 Array of strings, each one representing a label on the graph.
-
----
 
 ## Optional Props
 
@@ -256,8 +252,6 @@ Array of strings, each one representing a label on the graph.
 
 Play graph on mount component.
 
----
-
 ### **`barDataGap`**
 
 **type:** _Number_
@@ -265,8 +259,6 @@ Play graph on mount component.
 **default:** `4`
 
 Gap in pixels applied between bar and bar data.
-
----
 
 ### **`barLabelWidth`**
 
@@ -276,8 +268,6 @@ Gap in pixels applied between bar and bar data.
 
 Width in pixels applied on all bar labels.
 
----
-
 ### **`barThickness`**
 
 **type:** _Number_
@@ -285,8 +275,6 @@ Width in pixels applied on all bar labels.
 **default:** `20`
 
 Bar thickness in pixels.
-
----
 
 ### **`barTransitionTopInterval`**
 
@@ -296,8 +284,6 @@ Bar thickness in pixels.
 
 Bar transition top time in milliseconds.
 
----
-
 ### **`className`**
 
 **type:** _String_
@@ -305,8 +291,6 @@ Bar transition top time in milliseconds.
 **default:** `""`
 
 Custom css class applied on the graph container.
-
----
 
 ### **`gap`**
 
@@ -316,8 +300,6 @@ Custom css class applied on the graph container.
 
 Gap in pixels applied between graph bars.
 
----
-
 ### **`order`**
 
 **type:** _String_
@@ -325,8 +307,6 @@ Gap in pixels applied between graph bars.
 **default:** `"desc"`
 
 Custom css class applied on the graph container.
-
----
 
 ### **`showActionButtons`**
 
@@ -336,8 +316,6 @@ Custom css class applied on the graph container.
 
 Set the action buttons visibility.
 
----
-
 ### **`stepInterval`**
 
 **type:** _Number_
@@ -345,8 +323,6 @@ Set the action buttons visibility.
 **default:** `1500`
 
 Step transition time in milliseconds.
-
----
 
 ### **`timelineTrackColor`**
 
@@ -356,8 +332,6 @@ Step transition time in milliseconds.
 
 Background color applied on the timeline track.
 
----
-
 ### **`timelineTrackFillColor`**
 
 **type:** _String_
@@ -365,8 +339,6 @@ Background color applied on the timeline track.
 **default:** `"#0984e3"`
 
 Background color applied on the timeline track fill.
-
----
 
 ### **`timelineMarkerColor`**
 
@@ -376,8 +348,6 @@ Background color applied on the timeline track fill.
 
 Background color applied on the timeline markers.
 
----
-
 ### **`timelineMarkerSize`**
 
 **type:** _Number_
@@ -385,8 +355,6 @@ Background color applied on the timeline markers.
 **default:** `14`
 
 Width in pixels applied on the timeline markers.
-
----
 
 ### **`timelineTrackThickness`**
 
@@ -396,8 +364,6 @@ Width in pixels applied on the timeline markers.
 
 Width in pixels applied on the timeline track.
 
----
-
 ## Callback Props
 
 ### **`getController`**
@@ -406,15 +372,11 @@ Width in pixels applied on the timeline track.
 
 Returns the graph controller instance. **React only**
 
----
-
 ### **`onChange`**
 
 **default:** `(step:Number) => step`
 
 Called when the current step changes.
-
----
 
 ### **`renderBarValue`**
 
@@ -422,15 +384,11 @@ Called when the current step changes.
 
 Bar value handling.
 
----
-
 ### **`renderGraphTitle`**
 
 **default:** `(title:String) => title`
 
 Graph title handling.
-
----
 
 ## API Methods
 
@@ -438,25 +396,17 @@ Graph title handling.
 
 Go to next evolution step.
 
----
-
 ### **`goToPreviousStep`**
 
 Go to next evolution step.
-
----
 
 ### **`pause`**
 
 Pause the evolution if the graph is playing.
 
----
-
 ### **`play`**
 
 Play step by step.
-
----
 
 ### **`render`**
 
@@ -466,8 +416,6 @@ Play step by step.
 
 Create and append a graph as selector's child.
 
----
-
 ### **`setCurrentStep`**
 
 **param:** `step`
@@ -475,8 +423,6 @@ Create and append a graph as selector's child.
 **param type:** _Number_
 
 Set the current evolution step by index.
-
----
 
 ## To Do
 
