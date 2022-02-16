@@ -21,13 +21,16 @@
     "css",
     "customizable",
     "evolution",
+    "evolution-chart",
     "evolution-graph",
     "graph",
     "javascript",
     "js",
     "react",
     "responsive",
-    "vanilla"
+    "vanilla",
+    "vanilla-javascript",
+    "vanilla-js"
   ],
   "license": "MIT"
 }
