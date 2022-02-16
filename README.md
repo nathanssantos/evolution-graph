@@ -36,7 +36,7 @@ or
 $ yarn add evolution-graph
 ```
 
-### Code example
+### Code Example
 
 ```jsx
 import React from "react";
@@ -129,9 +129,9 @@ export default App;
 
 ### Install
 
-[Download the package last version](https://github.com/nathanssantos/evolution-graph/archive/refs/heads/main.zip)
+[Download the package latest version](https://github.com/nathanssantos/evolution-graph/archive/refs/heads/main.zip)
 
-### Code example
+### Code Example
 
 ```html
 <!DOCTYPE html>
