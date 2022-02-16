@@ -311,7 +311,7 @@ Graph bars ordenation. Can be either "desc" or "asc".
 
 **default:** `true`
 
-Set the action buttons visibility.
+The action buttons visibility.
 
 ### **`stepInterval`**
 
@@ -351,7 +351,7 @@ Background color applied on the timeline markers.
 
 **default:** `14`
 
-Width in pixels applied on the timeline markers.
+Width and height in pixels applied on the timeline markers.
 
 ### **`timelineTrackThickness`**
 
@@ -359,7 +359,7 @@ Width in pixels applied on the timeline markers.
 
 **default:** `4`
 
-Width in pixels applied on the timeline track.
+Height in pixels applied on the timeline track.
 
 ## Callback Props
 
@@ -367,39 +367,39 @@ Width in pixels applied on the timeline track.
 
 **default:** `(controller:Controller) => controller`
 
-Returns the graph controller instance. **React only**
+Return the graph controller instance. **React prop only**.
 
 ### **`onChange`**
 
-**default:** `(step:Number) => step`
+**default:** `(currentStep:Number) => currentStep`
 
-Called when the current step changes.
+Return the current step when the graph changes.
 
 ### **`renderBarValue`**
 
 **default:** `(value:Number) => value`
 
-Bar value handling.
+Return the bar value for handling.
 
 ### **`renderGraphTitle`**
 
 **default:** `(title:String) => title`
 
-Graph title handling.
+Return the graph title for handling.
 
 ## API Methods
 
 ### **`goToNextStep`**
 
-Go to next evolution step.
+Go to next step.
 
 ### **`goToPreviousStep`**
 
-Go to next evolution step.
+Go to previous step.
 
 ### **`pause`**
 
-Pause the evolution if the graph is playing.
+Pause the graph if it is playing.
 
 ### **`play`**
 
@@ -407,19 +407,19 @@ Play step by step.
 
 ### **`render`**
 
-**param:** `selector`
+**argument:** `selector`
 
-**param type:** _String_
+**argument type:** _String_
 
-Create and append a graph as selector's child.
+Create and append a graph as child of the element found with the selector passed as argument.
 
 ### **`setCurrentStep`**
 
-**param:** `step`
+**argument:** `step`
 
-**param type:** _Number_
+**argument type:** _Number_
 
-Set the current evolution step by index.
+Set the current step by the index passed as argument.
 
 ## To Do
 
