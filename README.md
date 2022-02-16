@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-Animated, responsive, and highly customizable evolution graph built with HTML, Vanilla JavaScript, and CSS to create flexible data visualizations.
+Animated, responsive, and highly customizable evolution graph built with HTML, Vanilla JavaScript, and CSS which can be used to create flexible data visualizations and to present evolution relationships between entities.
 </p>
 
 ## Examples
@@ -237,7 +237,7 @@ Array of objects, each one representing a bar on the graph. Must have the same l
 
 **type:** _Array_
 
-Array of strings, each one representing a label on the graph. Must have the same length as `data`.
+Array of strings, each one representing a label on the graph timeline. Must have the same length as `data`.
 
 ## Optional Props
 
@@ -379,13 +379,13 @@ Return the current step when the graph changes.
 
 **default:** `(value:Number) => value`
 
-Return the bar value for handling.
+Return the current bar value for handling.
 
 ### **`renderGraphTitle`**
 
 **default:** `(title:String) => title`
 
-Return the graph title for handling.
+Return the current graph title for handling.
 
 ## API Methods
 
