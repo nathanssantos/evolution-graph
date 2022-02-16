@@ -85,38 +85,40 @@ const labels = [
 const App = () => {
   let graph = null;
 
-  // graph.setCurrentStep(3)
-  // graph.goToPreviousStep()
   // graph.goToNextStep()
-  // graph.play()
+  // graph.goToPreviousStep()
   // graph.pause()
+  // graph.play()
+  // graph.setCurrentStep(3)
 
   return (
     <div className="app">
       <EvolutionGraph
         data={data}
         labels={labels}
+        autoPlay={false}
+        barDataGap={4}
+        barLabelWidth={100}
+        barThickness={20}
+        barTransitionTopInterval={750}
         className="custom-evolution-graph"
+        gap={10}
         order="desc"
         stepInterval={1500}
-        barTransitionTopInterval={750}
-        gap={10}
-        barThickness={20}
-        barLabelWidth={100}
-        barDataGap={4}
-        timelineTrackThickness={4}
+        showActionButtons
         timelineTrackColor="#cecece"
         timelineTrackFillColor="#0984e3"
-        timelineMarkerSize={14}
         timelineMarkerColor="#cecece"
-        showActionButtons
-        autoPlay={false}
-        renderGraphTitle={(title) => `Date - ${title}`}
-        renderBarValue={(value) => `${value}k`}
+        timelineMarkerSize={14}
+        timelineTrackThickness={4}
+        getController={(controllerInstance) => {
+          graph = controllerInstance;
+        }}
         onChange={(step) => {
           console.log(step);
         }}
-        getController={(controllerInstance) => (graph = controllerInstance)}
+        renderBarValue={(value) => `${value}k`}
+        renderGraphTitle={(title) => `Date - ${title}`}
       />
     </div>
   );
@@ -190,33 +192,33 @@ export default App;
       const graph = new EvolutionGraph({
         data,
         labels,
-        className: "custom-evolution-graph",
-        order: "desc",
-        stepInterval: 1500,
-        barTransitionTopInterval: 750,
-        gap: 10,
-        barThickness: 20,
-        barLabelWidth: 100,
+        autoPlay: false,
         barDataGap: 4,
-        timelineTrackThickness: 4,
+        barLabelWidth: 100,
+        barThickness: 20,
+        barTransitionTopInterval: 750,
+        className: "custom-evolution-graph",
+        gap: 10,
+        order: "desc",
+        showActionButtons: true,
+        stepInterval: 1500,
         timelineTrackColor: "#cecece",
         timelineTrackFillColor: "#0984e3",
-        timelineMarkerSize: 14,
         timelineMarkerColor: "#cecece",
-        showActionButtons: true,
-        autoPlay: false,
-        renderGraphTitle: (title) => `Date - ${title}`,
-        renderBarValue: (value) => `${value}k`,
+        timelineMarkerSize: 14,
+        timelineTrackThickness: 4,
         onChange: (step) => {
           console.log(step);
         },
+        renderBarValue: (value) => `${value}k`,
+        renderGraphTitle: (title) => `Date - ${title}`,
       });
 
-      // graph.setCurrentStep(3)
-      // graph.goToPreviousStep()
       // graph.goToNextStep()
-      // graph.play()
+      // graph.goToPreviousStep()
       // graph.pause()
+      // graph.play()
+      // graph.setCurrentStep(3)
 
       graph.render("#evolution-graph-example");
     </script>
@@ -422,11 +424,10 @@ Set the current step by the index passed as argument.
 
 ## To Do
 
-- Add renderBarLabel callback prop
-- Add showBarLabel prop
-- Add showBarValue prop
-- Add showBarImage prop
-- Add onClickTimelineLabel prop
-- Add onClickBar prop
-- Types
-- Improve documentation
+- renderBarLabel callback prop
+- showBarLabel prop
+- showBarValue prop
+- showBarImage prop
+- onClickTimelineLabel prop
+- onClickBar prop
+- Global types declaration
