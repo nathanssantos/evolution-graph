@@ -20,7 +20,7 @@ Animated, responsive, highly customizable, and dependency-free evolution graph b
 
 [Demo](https://nathanssantos.github.io/evolution-graph-demo) | [Repository](https://github.com/nathanssantos/evolution-graph-demo)
 
-Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) repository wich was very useful on this project demonstrations.
+Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) project wich was very useful on this demonstrations.
 
 ## React Usage
 
