@@ -38,6 +38,98 @@ or
 $ yarn add evolution-graph
 ```
 
+### React
+
+```jsx
+import React from "react";
+import EvolutionGraph from "evolution-graph";
+import "evolution-graph/src/css/styles.css";
+
+const data = [
+  {
+    label: "Python",
+    className: "python",
+    color: "#387EB8",
+    image:
+      "https://raw.githubusercontent.com/abranhe/programming-languages-logos/30a0ecf99188be99a3c75a00efb5be61eca9c382/src/python/python.svg",
+    values: [0, 3, 4, 7, 8, 9, 9, 10, 11, 12, 13, 15],
+  },
+  {
+    label: "Ruby",
+    className: "ruby",
+    color: "#E82609",
+    image:
+      "https://raw.githubusercontent.com/abranhe/programming-languages-logos/30a0ecf99188be99a3c75a00efb5be61eca9c382/src/ruby/ruby.svg",
+    values: [0, 2, 4, 5, 6, 8, 10, 13, 14, 17, 20, 21],
+  },
+  {
+    label: "JavaScript",
+    className: "javascript",
+    color: "#F0DB4F",
+    image:
+      "https://raw.githubusercontent.com/abranhe/programming-languages-logos/30a0ecf99188be99a3c75a00efb5be61eca9c382/src/javascript/javascript.svg",
+    values: [0, 2, 3, 6, 7, 10, 14, 20, 20, 24, 28, 32],
+  },
+];
+
+const labels = [
+  "01/01/2021",
+  "01/02/2021",
+  "01/03/2021",
+  "01/04/2021",
+  "01/05/2021",
+  "01/06/2021",
+  "01/07/2021",
+  "01/08/2021",
+  "01/09/2021",
+  "01/10/2021",
+  "01/11/2021",
+  "01/12/2021",
+];
+
+const App = () => {
+  let graph = null;
+
+  // graph.setCurrentStep(3)
+  // graph.goToPreviousStep()
+  // graph.goToNextStep()
+  // graph.play()
+  // graph.pause()
+
+  return (
+    <div className="app">
+      <EvolutionGraph
+        data={data}
+        labels={labels}
+        className="custom-evolution-graph"
+        order="desc"
+        stepInterval={1500}
+        barTransitionTopInterval={750}
+        gap={10}
+        barThickness={20}
+        barLabelWidth={100}
+        barDataGap={4}
+        timelineTrackThickness={4}
+        timelineTrackColor="#cecece"
+        timelineTrackFillColor="#0984e3"
+        timelineMarkerSize={14}
+        timelineMarkerColor="#cecece"
+        showActionButtons
+        autoPlay={false}
+        renderGraphTitle={(title) => `Date - ${title}`}
+        renderBarValue={(value) => `${value}k`}
+        onChange={(step) => {
+          console.log(step);
+        }}
+        getController={(controllerInstance) => (graph = controllerInstance)}
+      />
+    </div>
+  );
+};
+
+export default App;
+```
+
 ### Vanilla JavaScript
 
 ```html
