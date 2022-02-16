@@ -12,17 +12,17 @@ Animated, responsive, and highly customizable evolution graph built with HTML, V
 
 ## Examples
 
-### Vanilla JavaScript
-
-[Demo](https://nathanssantos.github.io/evolution-graph-demo) | [Repository](https://github.com/nathanssantos/evolution-graph-demo)
-
 ### React
 
 [Demo](https://nathanssantos.github.io/evolution-graph-react-demo) | [Repository](https://github.com/nathanssantos/evolution-graph-react-demo)
 
+### Vanilla JavaScript
+
+[Demo](https://nathanssantos.github.io/evolution-graph-demo) | [Repository](https://github.com/nathanssantos/evolution-graph-demo)
+
 Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) repository wich was very useful on this project demo.
 
-## Usage
+## React Usage
 
 ### Install
 
@@ -36,7 +36,7 @@ or
 $ yarn add evolution-graph
 ```
 
-### React
+### Code example
 
 ```jsx
 import React from "react";
@@ -128,7 +128,13 @@ const App = () => {
 export default App;
 ```
 
-### Vanilla JavaScript
+## Vanilla JavaScript Usage
+
+### Install
+
+[Download the package](https://github.com/nathanssantos/evolution-graph/archive/refs/heads/main.zip)
+
+### Code example
 
 ```html
 <!DOCTYPE html>

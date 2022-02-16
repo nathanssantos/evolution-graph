@@ -10,12 +10,14 @@ const EvolutionGraph = (props) => {
   useEffect(() => {
     if (mounted) return;
 
-    if (getController && typeof getController === "function") {
-      getController(graphController);
-    } else {
-      console.warn(
-        `Evolution Graph - Invalid getController prop type. Expected function and received ${typeof getController}.`
-      );
+    if (getController) {
+      if (typeof getController === "function") {
+        getController(graphController);
+      } else {
+        console.warn(
+          `Evolution Graph - Invalid getController prop type. Expected function and received ${typeof getController}.`
+        );
+      }
     }
 
     graphController.render(".evolution-graph-component");
