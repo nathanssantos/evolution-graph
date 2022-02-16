@@ -247,7 +247,7 @@ Array of strings, each one representing a label on the graph. Must have the same
 
 **default:** `false`
 
-Play graph on mount component.
+Play the graph on component mount.
 
 ### **`barDataGap`**
 
@@ -303,7 +303,7 @@ Gap in pixels applied between graph bars.
 
 **default:** `"desc"`
 
-Custom css class applied on the graph container.
+Graph bars ordenation. Can be either "desc" or "asc".
 
 ### **`showActionButtons`**
 
