@@ -4,8 +4,6 @@
   <a href="https://www.npmjs.com/package/evolution-graph">
     <img src="https://badge.fury.io/js/evolution-graph.svg">
   </a>
-  <a href="https://snyk.io/test/github/filipedeschamps/rss-feed-emitter">
-    </a>
 </p>
 
 <p align="center">
