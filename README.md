@@ -10,7 +10,7 @@
 Animated, responsive, and highly customizable evolution graph built with HTML, Vanilla JavaScript, and CSS which can be used to create flexible data visualizations and to present evolution relationships between entities.
 </p>
 
-## Examples
+## Examples of Usage
 
 ### React
 
@@ -20,7 +20,7 @@ Animated, responsive, and highly customizable evolution graph built with HTML, V
 
 [Demo](https://nathanssantos.github.io/evolution-graph-demo) | [Repository](https://github.com/nathanssantos/evolution-graph-demo)
 
-Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) repository wich was very useful on this project demo.
+Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) repository wich was very useful on this project demonstrations.
 
 ## React Usage
 
@@ -129,7 +129,7 @@ export default App;
 
 ### Install
 
-[Download the last version of the package](https://github.com/nathanssantos/evolution-graph/archive/refs/heads/main.zip)
+[Download the package last version](https://github.com/nathanssantos/evolution-graph/archive/refs/heads/main.zip)
 
 ### Code example
 
@@ -218,7 +218,6 @@ export default App;
       // graph.play()
       // graph.pause()
 
-      // draw the graph by passing the selector of a html element to the method render()
       graph.render("#evolution-graph-example");
     </script>
   </body>
