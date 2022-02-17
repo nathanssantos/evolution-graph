@@ -114,8 +114,8 @@ const App = () => {
         getController={(controllerInstance) => {
           graph = controllerInstance;
         }}
-        onChange={(step) => {
-          console.log(step);
+        onChange={(currentStep) => {
+          console.log(currentStep);
         }}
         renderBarValue={(value) => `${value}k`}
         renderGraphTitle={(title) => `Date - ${title}`}
@@ -207,8 +207,8 @@ export default App;
         timelineMarkerColor: "#cecece",
         timelineMarkerSize: 14,
         timelineTrackThickness: 4,
-        onChange: (step) => {
-          console.log(step);
+        onChange: (currentStep) => {
+          console.log(currentStep);
         },
         renderBarValue: (value) => `${value}k`,
         renderGraphTitle: (title) => `Date - ${title}`,

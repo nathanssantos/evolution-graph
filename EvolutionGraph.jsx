@@ -25,8 +25,6 @@ const EvolutionGraph = (props) => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
-
   return <div className="evolution-graph-component" />;
 };
 

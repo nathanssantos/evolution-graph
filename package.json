@@ -1,6 +1,6 @@
 {
   "name": "evolution-graph",
-  "version": "1.2.9",
+  "version": "1.3.0",
   "description": "Animated, responsive, highly customizable, and dependency-free evolution graph built with HTML, Vanilla JavaScript, and CSS which can be used to create flexible data visualizations and to present evolution relationships between entities.",
   "homepage": "https://github.com/nathanssantos/evolution-graph#readme",
   "author": {
