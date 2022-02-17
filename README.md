@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-Animated, responsive, highly customizable and dependency-free evolution graph built with Vanilla JavaScript which can be used to create flexible data visualizations and to present evolution relationships between entities.
+Evolution Graph is animated, highly customizable, responsive, and dependency-free. The package is built with Vanilla JavaScript and is used to create flexible data visualizations and present evolution relationships between entities.
 </p>
 
 ## Examples of Usage
@@ -430,6 +430,7 @@ Set the current step by the index passed as argument.
 - previousIcon prop
 - nextIcon prop
 - Global types declaration
+- Tests
 - showBarLabel prop
 - showBarValue prop
 - showBarImage prop
