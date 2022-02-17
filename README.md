@@ -131,7 +131,7 @@ export default App;
 
 ### Install
 
-[Download the latest version of the package](https://github.com/nathanssantos/evolution-graph/archive/refs/heads/main.zip) and save it in your project.
+[Download the latest package version](https://github.com/nathanssantos/evolution-graph/archive/refs/heads/main.zip) and save it in your project.
 
 ### Code Example
 
