@@ -425,6 +425,10 @@ Set the current step by the index passed as argument.
 ## To Do
 
 - renderBarLabel callback prop
+- playIcon prop
+- pauseIcon prop
+- previousIcon prop
+- nextIcon prop
 - showBarLabel prop
 - showBarValue prop
 - showBarImage prop
