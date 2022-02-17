@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-Animated, responsive, highly customizable and dependency-free evolution graph built with Vanilla JavaScript which can be used to create flexible data visualizations and to present evolution relationships between entities.
+Animated, responsive, highly customizable and dependency-free evolution graph built with Vanilla JavaScript which can be used to create flexible data visualizations, and to present evolution relationships between entities.
 </p>
 
 ## Examples of Usage
