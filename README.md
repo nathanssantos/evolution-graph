@@ -429,9 +429,9 @@ Set the current step by the index passed as argument.
 - pauseIcon prop
 - previousIcon prop
 - nextIcon prop
+- Global types declaration
 - showBarLabel prop
 - showBarValue prop
 - showBarImage prop
 - onClickTimelineLabel prop
 - onClickBar prop
-- Global types declaration
