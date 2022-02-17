@@ -14,11 +14,11 @@ Animated, responsive, highly customizable, and dependency-free evolution graph b
 
 ### React
 
-[Demo](https://nathanssantos.github.io/evolution-graph-react-demo) | [Repository](https://github.com/nathanssantos/evolution-graph-react-demo)
+[Custom graph demo](https://nathanssantos.github.io/evolution-graph-react-demo) | [Repository](https://github.com/nathanssantos/evolution-graph-react-demo)
 
 ### Vanilla JavaScript
 
-[Demo](https://nathanssantos.github.io/evolution-graph-demo) | [Repository](https://github.com/nathanssantos/evolution-graph-demo)
+[Custom graph demo](https://nathanssantos.github.io/evolution-graph-demo) | [Repository](https://github.com/nathanssantos/evolution-graph-demo)
 
 Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) project wich was very useful on this demonstrations.
 
