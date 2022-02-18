@@ -4,6 +4,10 @@
   <a href="https://www.npmjs.com/package/evolution-graph">
     <img src="https://badge.fury.io/js/evolution-graph.svg">
   </a>
+  <a href="https://github.com/nathanssantos/evolution-graph/archive/refs/heads/main.zip">
+    <img src="https://badgen.net/npm/dt/evolution-graph">
+  </a>
+  <img src="https://img.shields.io/badge/Made%20with-JavaScript-f0db4f.svg">
 </p>
 
 <p align="center">
