@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-Evolution Graph is highly customizable, animated, responsive, and dependency-free. The package is built with Vanilla JavaScript and is used to create flexible data visualizations and present evolution relationships between entities.
+Highly customizable, animated, responsive, and dependency-free Evolution Graph implementation. The package is built with Vanilla JavaScript and is used to create flexible data visualizations and present evolution relationships between entities.
 </p>
 
 ## Examples of Usage
@@ -20,7 +20,7 @@ Evolution Graph is highly customizable, animated, responsive, and dependency-fre
 
 [Custom graph demo](https://nathanssantos.github.io/evolution-graph-demo) | [Repository](https://github.com/nathanssantos/evolution-graph-demo)
 
-Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos) project wich was very useful on this demonstrations.
+Thanks to [Abraham Hernandez](https://github.com/abranhe) for the [programming-languages-logos](https://github.com/abranhe/programming-languages-logos), used in the above demos.
 
 ## React Usage
 
@@ -232,13 +232,13 @@ export default App;
 
 **type:** _Array_
 
-Array of objects, each one representing a bar on the graph. Must have the same length as `labels`.
+Array of objects, each representing one bar on the graph. Must have the same length as `labels`.
 
 ### **`labels`**
 
 **type:** _Array_
 
-Array of strings, each one representing a label on the graph timeline. Must have the same length as `data`.
+Array of strings, each representing one label on the graph timeline. Must have the same length as `data`.
 
 ## Optional Props
 
@@ -256,7 +256,7 @@ Play the graph on component mount.
 
 **default:** `4`
 
-Gap in pixels applied between bar and bar data.
+Gap between bar and bar data, in pixels.
 
 ### **`barLabelWidth`**
 
@@ -264,7 +264,7 @@ Gap in pixels applied between bar and bar data.
 
 **default:** `100`
 
-Width in pixels applied on all bar labels.
+Width of the bar labels, in pixels.
 
 ### **`barThickness`**
 
@@ -272,7 +272,7 @@ Width in pixels applied on all bar labels.
 
 **default:** `20`
 
-Bar thickness in pixels.
+Bar thickness, in pixels.
 
 ### **`barTransitionTopInterval`**
 
@@ -280,7 +280,7 @@ Bar thickness in pixels.
 
 **default:** `stepInterval / 2`
 
-Bar transition top time in milliseconds.
+Bar transition max time, in milliseconds.
 
 ### **`className`**
 
@@ -288,7 +288,7 @@ Bar transition top time in milliseconds.
 
 **default:** `""`
 
-Custom css class applied on the graph container.
+Custom CSS class applied to the graph container.
 
 ### **`gap`**
 
@@ -296,7 +296,7 @@ Custom css class applied on the graph container.
 
 **default:** `"desc"`
 
-Gap in pixels applied between graph bars.
+Gap between graph bars, in pixels.
 
 ### **`order`**
 
@@ -304,7 +304,7 @@ Gap in pixels applied between graph bars.
 
 **default:** `"desc"`
 
-Graph bars ordenation. Can be either "desc" or "asc".
+Graph bars order. Can be either "desc" or "asc".
 
 ### **`showActionButtons`**
 
@@ -312,7 +312,7 @@ Graph bars ordenation. Can be either "desc" or "asc".
 
 **default:** `true`
 
-The action buttons visibility.
+Action buttons visibility.
 
 ### **`stepInterval`**
 
@@ -320,7 +320,7 @@ The action buttons visibility.
 
 **default:** `1500`
 
-Step transition time in milliseconds.
+Step transition time, in milliseconds.
 
 ### **`timelineTrackColor`**
 
@@ -328,7 +328,7 @@ Step transition time in milliseconds.
 
 **default:** `"#cecece"`
 
-Background color applied on the timeline track.
+Background color of the timeline track.
 
 ### **`timelineTrackFillColor`**
 
@@ -336,7 +336,7 @@ Background color applied on the timeline track.
 
 **default:** `"#0984e3"`
 
-Background color applied on the timeline track fill.
+Background color of the timeline track fill.
 
 ### **`timelineMarkerColor`**
 
@@ -344,7 +344,7 @@ Background color applied on the timeline track fill.
 
 **default:** `"#cecece"`
 
-Background color applied on the timeline markers.
+Background color of the timeline markers.
 
 ### **`timelineMarkerSize`**
 
@@ -352,7 +352,7 @@ Background color applied on the timeline markers.
 
 **default:** `14`
 
-Width and height in pixels applied on the timeline markers.
+Width and height of the timeline markers, in pixels.
 
 ### **`timelineTrackThickness`**
 
@@ -360,7 +360,7 @@ Width and height in pixels applied on the timeline markers.
 
 **default:** `4`
 
-Height in pixels applied on the timeline track.
+Height of the timeline track, in pixels.
 
 ## Callback Props
 
@@ -368,35 +368,35 @@ Height in pixels applied on the timeline track.
 
 **default:** `(controller:Controller) => controller`
 
-Return the graph controller instance. **React prop only**.
+Returns the graph controller instance. **React prop only**.
 
 ### **`onChange`**
 
 **default:** `(currentStep:Number) => currentStep`
 
-Return the current step when the graph changes.
+Returns the current step when the graph changes.
 
 ### **`renderBarValue`**
 
 **default:** `(value:Number) => value`
 
-Return the current bar value for handling.
+Returns the current bar value for handling.
 
 ### **`renderGraphTitle`**
 
 **default:** `(title:String) => title`
 
-Return the current graph title for handling.
+Returns the current graph title for handling.
 
 ## API Methods
 
 ### **`goToNextStep`**
 
-Go to next step.
+Go to the next step.
 
 ### **`goToPreviousStep`**
 
-Go to previous step.
+Go to the previous step.
 
 ### **`pause`**
 
@@ -412,7 +412,7 @@ Play step by step.
 
 **argument type:** _String_
 
-Create and append a graph as child of the element found with the selector passed as argument.
+Create and append the graph as a child of the element selected by the selector passed as an argument.
 
 ### **`setCurrentStep`**
 
@@ -420,7 +420,7 @@ Create and append a graph as child of the element found with the selector passed
 
 **argument type:** _Number_
 
-Set the current step by the index passed as argument.
+Set the current step using the index passed as argument.
 
 ## To Do
 
