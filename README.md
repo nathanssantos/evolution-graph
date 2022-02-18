@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-Evolution Graph is animated, highly customizable, responsive, and dependency-free. The package is built with Vanilla JavaScript and is used to create flexible data visualizations and present evolution relationships between entities.
+Evolution Graph is highly customizable, animated, responsive, and dependency-free. The package is built with Vanilla JavaScript and is used to create flexible data visualizations and present evolution relationships between entities.
 </p>
 
 ## Examples of Usage

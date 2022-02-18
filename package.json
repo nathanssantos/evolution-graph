@@ -1,7 +1,7 @@
 {
   "name": "evolution-graph",
-  "version": "1.2.10",
-  "description": "Animated, responsive, highly customizable and dependency-free evolution graph built with Vanilla JavaScript which can be used to create flexible data visualizations and to present evolution relationships between entities.",
+  "version": "1.2.11",
+  "description": "Evolution Graph is highly customizable, animated, responsive, and dependency-free. The package is built with Vanilla JavaScript and is used to create flexible data visualizations and present evolution relationships between entities.",
   "homepage": "https://github.com/nathanssantos/evolution-graph#readme",
   "author": {
     "name": "Nathan Silva Santos",
