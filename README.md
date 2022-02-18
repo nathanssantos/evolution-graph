@@ -280,7 +280,7 @@ Bar thickness, in pixels.
 
 **default:** `stepInterval / 2`
 
-Bar transition max time, in milliseconds.
+Bar transition top time, in milliseconds.
 
 ### **`className`**
 
