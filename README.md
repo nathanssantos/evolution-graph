@@ -14,6 +14,10 @@
 Highly customizable, animated, responsive, and dependency-free Evolution Graph implementation. The package is built with Vanilla JavaScript and is used to create flexible data visualizations and present evolution relationships between entities.
 </p>
 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/nathanssantos/evolution-graph-demo/main/assets/demo.gif">
+</p>
+
 ## Examples of Usage
 
 ### React
