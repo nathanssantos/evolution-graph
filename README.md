@@ -15,7 +15,7 @@ Highly customizable, animated, responsive, and dependency-free Evolution Graph i
 </p>
 
 <p align="center">
-  <a href="https://github.com/nathanssantos/evolution-graph-react-demo">
+  <a href="https://nathanssantos.github.io/evolution-graph-react-demo/">
     <img src="https://raw.githubusercontent.com/nathanssantos/evolution-graph-demo/main/assets/demo.gif">
   </a>
 </p>
