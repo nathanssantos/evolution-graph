@@ -1,6 +1,6 @@
 {
   "name": "evolution-graph",
-  "description": "Highly customizable, animated and responsive evolution graph implementation. The package is used to create flexible data visualizations and present evolution relationships between entities.",
+  "description": "Highly customizable, animated, responsive evolution graph implementation. The package is used to create flexible data visualizations and present evolution relationships between entities.",
   "author": {
     "name": "Nathan Silva Santos",
     "email": "nathansilvasantos@gmail.com"
