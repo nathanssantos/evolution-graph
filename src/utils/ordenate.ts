@@ -1,5 +1,5 @@
-const ordernate = (a, b, order) => {
-  if (order === "desc") {
+const ordernate = (a: any, b: any, order: 'asc' | 'desc') => {
+  if (order === 'desc') {
     if (a < b) return 1;
     if (a > b) return -1;
   } else {

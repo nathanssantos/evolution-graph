@@ -1,7 +1,7 @@
-import Element from "./Element.js";
-import Bar from "./Bar.js";
-import Timeline from "./Timeline.js";
-import ordernate from "../utils/ordenate.js";
+import ordernate from '../utils/ordenate';
+import Bar from './Bar';
+import Element, { ElementConstructor } from './Element';
+import Timeline from './Timeline';
 
 const previousIcon =
   '<svg fill="black" viewBox="0 0 24 24" width="24" height="24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>';
@@ -12,9 +12,73 @@ const pauseIcon =
 const nextIcon =
   '<svg fill="black" viewBox="0 0 24 24"  width="24" height="24"><path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg>';
 
+type GraphConstructor = ElementConstructor & {
+  data: any[];
+  labels: string[];
+  order: 'asc' | 'desc';
+  stepInterval: number;
+  barTransitionTopInterval: number;
+  gap: number;
+  barThickness: number;
+  barLabelWidth: number;
+  barDataGap: number;
+  timelineTrackThickness: number;
+  timelineTrackColor: string;
+  timelineTrackFillColor: string;
+  timelineMarkerSize: number;
+  timelineMarkerColor: string;
+  showActionButtons: boolean;
+  renderBarValue: () => void;
+  renderTitle: (title: string) => void;
+  isPlaying: boolean;
+  setCurrentStep: (step: number, stopEvolution: boolean) => void;
+  goToPreviousStep: (params: { stopEvolution: boolean }) => void;
+  goToNextStep: (params: { stopEvolution: boolean }) => void;
+  play: () => void;
+  pause: () => void;
+  higherValue: number;
+};
+
 class Graph extends Element {
-  constructor(props) {
-    super(props);
+  data;
+  labels;
+  order;
+  stepInterval;
+  barTransitionTopInterval;
+  gap;
+  barThickness;
+  barLabelWidth;
+  barDataGap;
+  timelineTrackThickness;
+  timelineTrackColor;
+  timelineTrackFillColor;
+  timelineMarkerSize;
+  timelineMarkerColor;
+  showActionButtons;
+  renderBarValue;
+  renderTitle;
+  isPlaying;
+  setCurrentStep;
+  goToPreviousStep;
+  goToNextStep;
+  play;
+  pause;
+  higherValue;
+  elements:
+    | {
+        title: Element;
+        barsContainer: Element;
+        bars: Element;
+        timeline: Element;
+        actions: Element;
+        btPrevious: Element;
+        btPlayPause: Element;
+        btNext: Element;
+      }
+    | any = {};
+
+  constructor(params: GraphConstructor) {
+    super(params);
 
     const {
       data,
@@ -41,7 +105,7 @@ class Graph extends Element {
       play,
       pause,
       higherValue,
-    } = props;
+    } = params;
 
     this.data = data;
     this.labels = labels;
@@ -72,14 +136,14 @@ class Graph extends Element {
   }
 
   prepare = () => {
-    const title = new Element({ className: "evolution-graph__title" });
+    const title = new Element({ className: 'evolution-graph__title' });
 
     const barsContainer = new Element({
-      className: "evolution-graph__bars-container",
+      className: 'evolution-graph__bars-container',
     });
     barsContainer.setStyle(
-      "height",
-      `${(this.barThickness + this.gap) * this.data.length - this.gap}px`
+      'height',
+      `${(this.barThickness + this.gap) * this.data.length - this.gap}px`,
     );
 
     const bars = this.data.map(
@@ -87,19 +151,17 @@ class Graph extends Element {
         new Bar({
           ...bar,
           thickness: this.barThickness,
-          className: `evolution-graph__bar${
-            bar?.className?.length ? ` ${bar.className}` : ""
-          }`,
+          className: `evolution-graph__bar${bar?.className?.length ? ` ${bar.className}` : ''}`,
           labelWidth: this.barLabelWidth,
           dataGap: this.barDataGap,
           graph: this,
           renderValue: this.renderBarValue,
-        })
+        }),
     );
 
     const timeline = new Timeline({
       graph: this,
-      className: "evolution-graph__timeline",
+      className: 'evolution-graph__timeline',
       trackThickness: this.timelineTrackThickness,
       trackColor: this.timelineTrackColor,
       trackFillColor: this.timelineTrackFillColor,
@@ -109,35 +171,33 @@ class Graph extends Element {
     });
 
     const actions = new Element({
-      className: "evolution-graph__actions",
+      className: 'evolution-graph__actions',
     });
 
     const btPrevious = new Element({
-      className: "evolution-graph__actions__bt bt-previous",
-      type: "button",
+      className: 'evolution-graph__actions__bt bt-previous',
+      type: 'button',
     });
     btPrevious.body.innerHTML = previousIcon;
-    btPrevious.body.addEventListener("click", () =>
-      this.goToPreviousStep({ stopEvolution: true })
+    btPrevious.body.addEventListener('click', () =>
+      this.goToPreviousStep({ stopEvolution: true }),
     );
 
     const btPlayPause = new Element({
-      className: "evolution-graph__actions__bt bt-play-pause",
-      type: "button",
+      className: 'evolution-graph__actions__bt bt-play-pause',
+      type: 'button',
     });
     btPlayPause.body.innerHTML = playIcon;
-    btPlayPause.body.addEventListener("click", () => {
+    btPlayPause.body.addEventListener('click', () => {
       this.isPlaying ? this.pause() : this.play();
     });
 
     const btNext = new Element({
-      className: "evolution-graph__actions__bt bt-next",
-      type: "button",
+      className: 'evolution-graph__actions__bt bt-next',
+      type: 'button',
     });
     btNext.body.innerHTML = nextIcon;
-    btNext.body.addEventListener("click", () =>
-      this.goToNextStep({ stopEvolution: true })
-    );
+    btNext.body.addEventListener('click', () => this.goToNextStep({ stopEvolution: true }));
 
     this.elements = {
       title,
@@ -160,7 +220,7 @@ class Graph extends Element {
     if (this.showActionButtons) this.body.append(actions.body);
   };
 
-  update = ({ currentStep, isPlaying }) => {
+  update = ({ currentStep, isPlaying }: { currentStep: number; isPlaying: boolean }) => {
     this.elements.title.body.innerHTML = this.renderTitle
       ? this.renderTitle(this.labels[currentStep])
       : this.labels[currentStep];
@@ -168,15 +228,13 @@ class Graph extends Element {
     this.isPlaying = isPlaying;
 
     const sortedData = [...this.data].sort((a, b) =>
-      ordernate(a.values[currentStep], b.values[currentStep], this.order)
+      ordernate(a.values[currentStep], b.values[currentStep], this.order),
     );
 
     let higherBarDataWidth = 0;
 
-    this.elements.bars.forEach((bar, index) => {
-      const foundBar = sortedData.find(
-        ({ label }) => label === this.data[index]?.label
-      );
+    this.elements.bars.forEach((bar: Bar, index: number) => {
+      const foundBar = sortedData.find(({ label }) => label === this.data[index]?.label);
 
       bar.update({
         graph: this,
@@ -185,24 +243,21 @@ class Graph extends Element {
       });
     });
 
-    this.elements.bars.forEach((bar) => {
-      const barDataWidth = window
-        .getComputedStyle(bar.elements.data.body)
-        .width.replace("px", "");
+    this.elements.bars.forEach((bar: Bar) => {
+      const barDataWidth = Number(
+        window.getComputedStyle(bar.elements.data.body).width.replace('px', ''),
+      );
 
       if (barDataWidth > higherBarDataWidth) {
         higherBarDataWidth = barDataWidth;
       }
     });
 
-    this.elements.barsContainer.setStyle(
-      "transition",
-      `all ${this.stepInterval}ms linear`
-    );
+    this.elements.barsContainer.setStyle('transition', `all ${this.stepInterval}ms linear`);
 
     this.elements.barsContainer.setStyle(
-      "margin-right",
-      `${Math.ceil(higherBarDataWidth) + this.barDataGap}px`
+      'margin-right',
+      `${Math.ceil(higherBarDataWidth) + this.barDataGap}px`,
     );
 
     this.elements.timeline.update({
