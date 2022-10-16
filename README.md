@@ -437,6 +437,7 @@ Set the current step using the index passed as argument.
 - previousIcon prop
 - nextIcon prop
 - manage labels exibition on window resize
+- Global types declaration
 - Tests
 - showBarLabel prop
 - showBarValue prop
