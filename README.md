@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-Highly customizable, animated, responsive, and dependency-free Evolution Graph implementation. The package is built with Vanilla JavaScript and is used to create flexible data visualizations and present evolution relationships between entities.
+Animated, responsive, and dependency-free data visualization library built with Vanilla JavaScript. Create customizable bar chart races to display how data evolves over time.
 </p>
 
 <p align="center">
@@ -419,7 +419,7 @@ Play step by step.
 
 **argument type:** _String_
 
-Create and append the graph as a child of the element selected by the selector passed as an argument.
+Render the graph inside the element matching the given selector.
 
 ### **`setCurrentStep`**
 
@@ -427,20 +427,5 @@ Create and append the graph as a child of the element selected by the selector p
 
 **argument type:** _Number_
 
-Set the current step using the index passed as argument.
+Set the current step using the index passed as an argument.
 
-## To Do
-
-- renderBarLabel callback prop
-- playIcon prop
-- pauseIcon prop
-- previousIcon prop
-- nextIcon prop
-- manage labels exibition on window resize
-- Global types declaration
-- Tests
-- showBarLabel prop
-- showBarValue prop
-- showBarImage prop
-- onClickTimelineLabel prop
-- onClickBar prop
