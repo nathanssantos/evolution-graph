@@ -36,5 +36,8 @@
     "vanilla-javascript",
     "vanilla-js"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "evolution-graph": "^1.2.15"
+  }
 }
