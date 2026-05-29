@@ -1,5 +1,5 @@
 import Graph from "./src/components/Graph.js";
-// 满罗金
+
 class Controller {
   constructor(props) {
     const {
