@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evolution Graph 测试</title>
+  <!-- 引用库的CSS文件，路径正确 -->
+  <link rel="stylesheet" href="./src/css/styles.css">
+  <style>
+    body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>编程语言流行度变化趋势</h1>
+  <!-- 图表容器 -->
+  <div id="graph-container"></div>
+
+  <!-- 引入库并初始化 -->
+  <script type="module">
+    // 引用库的主文件，路径正确
+    import EvolutionGraph from "./Controller.js";
+
+    // 示例数据：可以随便修改
+    const data = [
+      {
+        label: "JavaScript",
+        color: "#F0DB4F",
+        values: [0, 5, 10, 18, 25, 32, 40, 48, 55, 62, 70, 78]
+      },
+      {
+        label: "Python",
+        color: "#387EB8",
+        values: [0, 3, 8, 15, 22, 30, 38, 45, 52, 60, 68, 75]
+      },
+      {
+        label: "Java",
+        color: "#007396",
+        values: [0, 10, 15, 20, 25, 28, 30, 32, 33, 34, 35, 36]
+      },
+      {
+        label: "C++",
+        color: "#00599C",
+        values: [0, 8, 12, 15, 18, 20, 21, 22, 23, 24, 25, 26]
+      },
+      {
+        label: "Go",
+        color: "#00ADD8",
+        values: [0, 1, 3, 6, 10, 15, 20, 25, 30, 35, 40, 45]
+      }
+    ];
+
+    // 时间标签，和上面values数组长度必须一致
+    const labels = [
+      "2020", "2021", "2022", "2023", "2024", "2025",
+      "2026", "2027", "2028", "2029", "2030", "2031"
+    ];
+
+    // 初始化图表
+    const graph = new EvolutionGraph({
+      data: data,
+      labels: labels,
+      autoPlay: true, // 自动播放
+      stepInterval: 800, // 每步间隔800毫秒
+      barThickness: 35, // 条形厚度
+      order: "desc", // 降序排列
+      showActionButtons: true, // 显示控制按钮
+      renderBarValue: (value) => `${value}%`, // 数值显示格式
+      renderGraphTitle: (title) => `年份：${title}` // 标题格式
+    });
+
+    // 渲染到页面
+    graph.render("#graph-container");
+  </script>
+</body>
+</html>
